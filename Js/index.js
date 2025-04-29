@@ -35,6 +35,49 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Efectos de glitch aleatorios
     setupGlitchEffects();
+    
+    // Manejo del formulario de contacto
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Mostrar efecto de carga
+            formMessage.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando mensaje...';
+            formMessage.style.display = 'block';
+            formMessage.className = 'form-message';
+            
+            // Crear objeto FormData para enviar los datos del formulario
+            const formData = new FormData(contactForm);
+            
+            // Enviar datos usando fetch API
+            fetch('php/enviar-contacto.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Si el mensaje se envió correctamente
+                    formMessage.innerHTML = '<i class="fas fa-check-circle"></i> ' + data.message;
+                    formMessage.className = 'form-message success';
+                    contactForm.reset(); // Limpiar el formulario
+                } else {
+                    // Si hubo un error
+                    formMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + data.message;
+                    formMessage.className = 'form-message error';
+                }
+            })
+            .catch(error => {
+                // Error en la conexión o procesando la respuesta
+                formMessage.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Ha ocurrido un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.';
+                formMessage.className = 'form-message error';
+                console.error('Error:', error);
+            });
+        });
+    }
 });
 
 // Inicializar la lluvia Matrix
