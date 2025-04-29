@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byron Jacque | Desarrollador Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!-- Digital Grid -->
+    <div class="digital-grid"></div>
+    
+    <!-- Matrix Rain Canvas -->
+    <canvas id="matrix-rain"></canvas>
+    
+    <!-- Video de fondo -->
+    <div class="video-background">
+        <video autoplay muted loop id="background-video">
+            <source src="background-video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Header Fijo -->
+    <header>
+        <div class="logo">
+            <a href="index.html" class="logo-text">Byron Jacque</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Paginas/proyectos.html">Proyectos</a></li>
+                <li><a href="Paginas/blogs.html">Blogs</a></li>
+                <li><a href="Paginas/hobbys.html">Hobbys</a></li>
+                <li><a href="Paginas/datos.html">Mis Datos</a></li>
+                <li><a href="Paginas/certificados.html">Certificados</a></li>
+                <li><a href="Paginas/musica.html">Música</a></li>
+            </ul>
+        </nav>
+        <div class="login-btn">
+            <button>Ingresar</button>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Sección Principal -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <img src="assets/images/conker.gif" alt="Byron Jacque">
+                    </div>
+                    <div class="profile-text">
+                        <h2>Hola, soy</h2>
+                        <h1 class="name">Byron Jacque</h1>
+                        <p class="title">Ingeniero Informático · Full Stack Developer con enfoque en soluciones escalables · Experiencia en APIs, Automatización y Desarrollo Web Profesional</p>
+                        <div class="cta-buttons">
+                            <a href="/assets/archivos/Curriculum Vitae.pdf" target="_blank" class="btn primary"><i class="fas fa-file-alt"></i> Ver mi currículum</a>
+                            <a href="Paginas/proyectos.html" class="btn secondary"><i class="fas fa-laptop-code"></i> Ver mis Proyectos</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3><i class="fas fa-envelope"></i> Contáctame</h3>
+                    <form id="contactForm">
+                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="tel" placeholder="Número de contacto (+56...)">
+                        <input type="text" placeholder="Asunto" required>
+                        <textarea placeholder="Escribe tu mensaje..."></textarea>
+                        <button type="submit" class="btn submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Reproductor de Música -->
+    <div class="music-player">
+        <audio id="audio">
+            <source src="assets/musica/sariasong.mp3" type="audio/mpeg">
+        </audio>
+        <div class="music-controls">
+            <button id="playBtn"><i class="fas fa-play"></i></button>
+            <span class="time">0:00 / 1:14</span>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <button id="volumeBtn"><i class="fas fa-volume-up"></i></button>
+            <button id="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+        </div>
+    </div>
+
+    <!-- Terminal Flotante -->
+    <button class="terminal-toggle"><i class="fas fa-terminal"></i></button>
+    <div class="terminal">
+        <div class="terminal-header">
+            <span class="terminal-title">Bjacque.exe</span>
+            <div class="terminal-controls">
+                <span class="terminal-minimize"></span>
+                <span class="terminal-maximize"></span>
+                <span class="terminal-close"></span>
+            </div>
+        </div>
+        <div class="terminal-content">
+            <p>Bjacque OS [Version 10.0.31337]</p>
+            <p>(c) 2025 Byron Jacque. Todos los derechos reservados.</p>
+            <p>Escribe 'help' para comandos disponibles.</p>
+        </div>
+        <div class="terminal-prompt">
+            <span class="terminal-prompt-text">></span>
+            <input type="text" class="terminal-input" autocomplete="off">
+        </div>
+    </div>
+
+    <!-- Sección de Lenguajes -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h2><i class="fas fa-laptop-code"></i> Lenguajes que domino</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
+                            <span>C++</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
+                            <span>C</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
+                            <span>C#</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+                            <span>Java</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />
+                            <span>TypeScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
+                            <span>PHP</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt="Ruby" />
+                            <span>Ruby</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" alt="Go" />
+                            <span>Go</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Swift" />
+                            <span>Swift</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin" />
+                            <span>Kotlin</span>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg" alt="Scala" />
+                            <span>Scala</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart" />
+                            <span>Dart</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R" />
+                            <span>R</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h2><i class="fas fa-cubes"></i> Frameworks que utilizo</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+                            <span>React</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js" />
+                            <span>Vue.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" />
+                            <span>Angular</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" />
+                            <span>Next.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" />
+                            <span>Express</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" />
+                            <span>Django</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" />
+                            <span>Bootstrap</span>
+                        </div>
+                       
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" />
+                            <span>Flutter</span>
+                        </div>
+                       
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg" alt="Svelte" />
+                            <span>Svelte</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring" />
+                            <span>Spring</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h2><i class="fas fa-database"></i> Bases de Datos</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+                            <span>MySQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" />
+                            <span>SQLite</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" />
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle" />
+                            <span>Oracle</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" />
+                            <span>Firebase</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" />
+                            <span>Redis</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mariadb/mariadb-original.svg" alt="MariaDB" />
+                            <span>MariaDB</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL Server" />
+                            <span>SQL Server</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/neo4j/neo4j-original.svg" alt="Neo4j" />
+                            <span>Neo4j</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" alt="GraphQL" />
+                            <span>GraphQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cassandra/cassandra-original.svg" alt="Cassandra" />
+                            <span>Cassandra</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Byron Jacque</h3>
+                    <p>Desarrollador Web & Ingeniero Informático</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/ByronJacque"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/byron-jacque-rivero-a1b670248/"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Byron Jacque. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modal para Curriculum -->
+    <div id="cvModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Curriculum Vitae</h2>
+            <div class="cv-content">
+                <iframe id="cvViewer" src="assets/archivos/Curriculum Vitae.pdf" width="100%" height="600px"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="Js/index.js"></script>
+</body>
+</html>

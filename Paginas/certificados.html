@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificados | Byron Jacque</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/certificados.css">
+</head>
+<body>
+    <!-- Digital Grid -->
+    <div class="digital-grid"></div>
+    
+    <!-- Matrix Rain Canvas -->
+    <canvas id="matrix-rain"></canvas>
+    
+    <!-- Video de fondo -->
+    <div class="video-background">
+        <video autoplay muted loop id="background-video">
+            <source src="background-video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Header Fijo -->
+    <header>
+        <div class="logo">
+            <a href="../index.html" class="logo-text">Byron Jacque</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../Paginas/proyectos.html">Proyectos</a></li>
+                <li><a href="../Paginas/blogs.html">Blogs</a></li>
+                <li><a href="../Paginas/hobbys.html">Hobbys</a></li>
+                <li><a href="../Paginas/datos.html">Mis Datos</a></li>
+                <li><a href="../Paginas/certificados.html">Certificados</a></li>
+                <li><a href="../Paginas/musica.html">Música</a></li>
+            </ul>
+        </nav>
+        <div class="login-btn">
+            <button>Ingresar</button>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Contenido Principal - Certificados -->
+    <main class="container">
+        <div class="page-title fade-in">
+            <h1>Certificados</h1>
+            <p>Mis logros académicos, certificaciones profesionales y reconocimientos técnicos.</p>
+        </div>
+        
+        <div class="certificate-category fade-in">
+            <h2 class="category-title">Certificaciones</h2>
+            <div class="certificates-grid">
+                <!-- Certificado Destacado -->
+                <div class="certificate-card featured fade-in">
+                    <div class="certificate-thumbnail">
+                        <img src="../assets/images/Titulo de prueba.jpg" alt="AWS Certified Solutions Architect">
+                        <div class="certificate-badge special">Destacado</div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Titulo de Ingeniero Infomatico</h3>
+                        
+                        <div class="certificate-info">
+                            <div class="certificate-issuer">
+                                <i class="fas fa-building"></i>
+                                <span>Universidad tecnologica de Chile Inacap</span>
+                            </div>
+                            <div class="certificate-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Junio 2025</span>
+                            </div>
+                        </div>
+                        
+                        <p class="certificate-description">
+                            Título profesional que acredita competencias en el desarrollo de soluciones tecnológicas eficientes,
+                             arquitectura de software, administración de bases de datos, redes,
+                              ciberseguridad y gestión de proyectos TI. Forma profesionales preparados 
+                              para enfrentar los desafíos del entorno digital con una mirada analítica, ética y orientada a la innovación.
+                        </p>
+                        
+                        <div class="certificate-actions">
+                            <a href="certificados/aws-solutions-architect.pdf" target="_blank" class="view-certificate">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Ver Certificado</span>
+                            </a>
+                            <div class="certificate-year">2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificado Regular 1 -->
+                <div class="certificate-card fade-in">
+                    <div class="certificate-thumbnail">
+                        <img src="../assets/imagenes certificados/Python.png" alt="Santander Open Academy">
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Python Santander Open Academy</h3>
+                        
+                        <div class="certificate-info">
+                            <div class="certificate-issuer">
+                                <i class="fas fa-building"></i>
+                                <span>Santander</span>
+                            </div>
+                            <div class="certificate-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Septiembre 2024</span>
+                            </div>
+                        </div>
+                        
+                        <p class="certificate-description">
+                            Certificación que acredita competencias en programación con Python, enfocada en buenas prácticas, estructuras de control, manejo de datos y desarrollo de scripts automatizados.                        </p>
+                        
+                        <div class="certificate-actions">
+                            <a href="../assets/Certificados/Certificado Python.pdf" target="_blank" class="view-certificate">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Ver Certificado</span>
+                            </a>
+                            <div class="certificate-year">2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificado Regular 2 -->
+                <div class="certificate-card fade-in">
+                    <div class="certificate-thumbnail">
+                        <img src="../assets/imagenes certificados/power_bi.png" alt="Google Cloud Engineer">
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Power BI Santander Open Academy</h3>
+                        
+                        <div class="certificate-info">
+                            <div class="certificate-issuer">
+                                <i class="fas fa-building"></i>
+                                <span>Santander Open Academy</span>
+                            </div>
+                            <div class="certificate-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Diciembre 2024</span>
+                            </div>
+                        </div>
+                        
+                        <p class="certificate-description">
+                            Certificación que valida conocimientos en el uso de Power BI para transformar datos en información visual, construir dashboards interactivos y facilitar la toma de decisiones basadas en datos.
+                        </p>
+                        
+                        <div class="certificate-actions">
+                            <a href="../assets/Certificados/Certificado Power Bi.pdf" target="_blank" class="view-certificate">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Ver Certificado</span>
+                            </a>
+                            <div class="certificate-year">2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="certificate-category fade-in">
+            <h2 class="category-title">Certificaciones de Inacap</h2>
+            <div class="certificates-grid">
+                <!-- Certificado Regular 3 -->
+                <div class="certificate-card fade-in">
+                    <div class="certificate-thumbnail">
+                        <img src="../assets/imagenes certificados/Desarrollador Full Stack.png" alt="Certified Kubernetes Administrator">
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Certificado Desarrollador Full Stack Inacap</h3>
+                        
+                        <div class="certificate-info">
+                            <div class="certificate-issuer">
+                                <i class="fas fa-building"></i>
+                                <span>Inacap Sede Renca</span>
+                            </div>
+                            <div class="certificate-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Diciembre 2024</span>
+                            </div>
+                        </div>
+                        
+                        <p class="certificate-description">
+                            Certificación que acredita habilidades en desarrollo Full Stack, incluyendo diseño, implementación y despliegue de aplicaciones web con tecnologías frontend y backend.
+                        </p>
+                        
+                        <div class="certificate-actions">
+                            <a href="../assets/Certificados/CERTIFICADO EN DESARROLLADOR FULL STACK.pdf" target="_blank" class="view-certificate">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Ver Certificado</span>
+                            </a>
+                            <div class="certificate-year">2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificado Regular 4 -->
+                <div class="certificate-card fade-in">
+                    <div class="certificate-thumbnail">
+                        <img src="../assets/imagenes certificados/desarrolo de aplicaciones.png" alt="TensorFlow Developer">
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Certificado en desarrollo de aplicaciones Inacap</h3>
+                        
+                        <div class="certificate-info">
+                            <div class="certificate-issuer">
+                                <i class="fas fa-building"></i>
+                                <span>Inacap</span>
+                            </div>
+                            <div class="certificate-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Diciembre 2024</span>
+                            </div>
+                        </div>
+                        
+                        <p class="certificate-description">
+                            Certificación que acredita competencias en el diseño, desarrollo y mantenimiento de aplicaciones multiplataforma utilizando buenas prácticas de programación y control de versiones.
+                        </p>
+                        
+                        <div class="certificate-actions">
+                            <a href="../assets/Certificados/CERTIFICADO EN DESARROLLO DE APLICACIONES.pdf" target="_blank" class="view-certificate">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Ver Certificado</span>
+                            </a>
+                            <div class="certificate-year">2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificado Regular 5 -->
+                <div class="certificate-card fade-in">
+                    <div class="certificate-thumbnail">
+                        <img src="../assets/imagenes certificados/Base de datos.png" alt="Cisco Certified Network Associate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Certificado en diseño y gestión de base de datos Inacap</h3>
+                        
+                        <div class="certificate-info">
+                            <div class="certificate-issuer">
+                                <i class="fas fa-building"></i>
+                                <span>Inacap</span>
+                            </div>
+                            <div class="certificate-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Diciembre 2024</span>
+                            </div>
+                        </div>
+                        
+                        <p class="certificate-description">
+                            Curso que valida competencias en la planificación y mantenimiento de bases de datos para proyectos reales, con enfoque en rendimiento, integridad y escalabilidad.
+                        </p>
+                        
+                        <div class="certificate-actions">
+                            <a href="../assets/Certificados/CERTIFICADO EN DISEÑO Y GESTIÓN DE BASE DE.pdf" target="_blank" class="view-certificate">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Ver Certificado</span>
+                            </a>
+                            <div class="certificate-year">2024</div>
+                        </div>
+                    </div>
+                </div>
+        
+  <!-- Certificado Regular 6 -->
+  <div class="certificate-card fade-in">
+    <div class="certificate-thumbnail">
+        <img src="../assets/imagenes certificados/Arquitectura cloud.png" alt="Cisco Certified Network Associate">
+    </div>
+    <div class="certificate-content">
+        <h3 class="certificate-title">Certificado en arquitectura cloud</h3>
+        
+        <div class="certificate-info">
+            <div class="certificate-issuer">
+                <i class="fas fa-building"></i>
+                <span>Inacap</span>
+            </div>
+            <div class="certificate-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Diciembre 2024</span>
+            </div>
+        </div>
+        
+        <p class="certificate-description">
+            Certificación que valida competencias para diseñar arquitecturas cloud eficientes, seguras y escalables, aplicando buenas prácticas en entornos de computación en la nube.
+        </p>
+        
+        <div class="certificate-actions">
+            <a href="../assets/Certificados/CERTIFICADO EN ARQUITECTURA CLOUD.pdf" target="_blank" class="view-certificate">
+                <i class="fas fa-file-pdf"></i>
+                <span>Ver Certificado</span>
+            </a>
+            <div class="certificate-year">2024</div>
+        </div>
+    </div>
+</div>
+
+
+  <!-- Certificado Regular 7 -->
+  <div class="certificate-card fade-in">
+    <div class="certificate-thumbnail">
+        <img src="../assets/imagenes certificados/soporte computacional.png" alt="Cisco Certified Network Associate">
+    </div>
+    <div class="certificate-content">
+        <h3 class="certificate-title">Certificado en Soporte Computacional</h3>
+        
+        <div class="certificate-info">
+            <div class="certificate-issuer">
+                <i class="fas fa-building"></i>
+                <span>Inacap</span>
+            </div>
+            <div class="certificate-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Diciembre 2024</span>
+            </div>
+        </div>
+        
+        <p class="certificate-description">
+            Curso que valida competencias en la planificación y mantenimiento de bases de datos para proyectos reales, con enfoque en rendimiento, integridad y escalabilidad.
+        </p>
+        
+        <div class="certificate-actions">
+            <a href="../assets/Certificados/CERTIFICADO EN SOPORTE COMPUTACIONAL.pdf" target="_blank" class="view-certificate">
+                <i class="fas fa-file-pdf"></i>
+                <span>Ver Certificado</span>
+            </a>
+            <div class="certificate-year">2024</div>
+        </div>
+    </div>
+</div>
+
+  <!-- Certificado Regular 8 -->
+  <div class="certificate-card fade-in">
+    <div class="certificate-thumbnail">
+        <img src="../assets/imagenes certificados/diseño agil de sistemas.png" alt="Cisco Certified Network Associate">
+    </div>
+    <div class="certificate-content">
+        <h3 class="certificate-title">Certificado en diseño agil de sistemas</h3>
+        
+        <div class="certificate-info">
+            <div class="certificate-issuer">
+                <i class="fas fa-building"></i>
+                <span>Inacap</span>
+            </div>
+            <div class="certificate-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Diciembre 2024</span>
+            </div>
+        </div>
+        
+        <p class="certificate-description">
+            Certificación que acredita conocimientos en metodologías ágiles para el diseño y desarrollo de sistemas, fomentando la adaptabilidad, colaboración y entrega continua de valor.
+        </p>
+        
+        <div class="certificate-actions">
+            <a href="../assets/Certificados/CERTIFICADO EN DISEÑO ÁGIL DE SISTEMAS.pdf" target="_blank" class="view-certificate">
+                <i class="fas fa-file-pdf"></i>
+                <span>Ver Certificado</span>
+            </a>
+            <div class="certificate-year">2024</div>
+        </div>
+    </div>
+</div>
+
+  <!-- Certificado Regular 9 -->
+  <div class="certificate-card fade-in">
+    <div class="certificate-thumbnail">
+        <img src="../assets/imagenes certificados/Innovacion.png" alt="Cisco Certified Network Associate">
+    </div>
+    <div class="certificate-content">
+        <h3 class="certificate-title">Certificado en diseño y gestión de base de datos Inacap</h3>
+        
+        <div class="certificate-info">
+            <div class="certificate-issuer">
+                <i class="fas fa-building"></i>
+                <span>Inacap</span>
+            </div>
+            <div class="certificate-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Diciembre 2024</span>
+            </div>
+        </div>
+        
+        <p class="certificate-description">
+            Certificación que valida competencias en innovación, generación de ideas disruptivas y creación de modelos de negocio sostenibles aplicables a proyectos emprendedores.
+        </p>
+        
+        <div class="certificate-actions">
+            <a href="../assets/Certificados/CERTIFICADO EN INNOVACIÓN Y EMPRENDIMIENTO.pdf" target="_blank" class="view-certificate">
+                <i class="fas fa-file-pdf"></i>
+                <span>Ver Certificado</span>
+            </a>
+            <div class="certificate-year">2024</div>
+        </div>
+    </div>
+</div>
+         <!-- Siguiente seccion -->       
+            </div>
+            
+        </div>
+        
+        <div class="certificate-category fade-in">
+            <h2 class="category-title">Cursos y Especializaciones</h2>
+            <div class="certificates-grid">
+                <!-- Certificado Regular 6 -->
+                <div class="certificate-card fade-in">
+                    <div class="certificate-thumbnail">
+                        <img src="https://via.placeholder.com/600x400/0A0A0A/00FF41/?text=Machine+Learning" alt="Machine Learning Specialization">
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Machine Learning Specialization</h3>
+                        
+                        <div class="certificate-info">
+                            <div class="certificate-issuer">
+                                <i class="fas fa-building"></i>
+                                <span>Stanford University & Coursera</span>
+                            </div>
+                            <div class="certificate-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Enero 2024</span>
+                            </div>
+                        </div>
+                        
+                        <p class="certificate-description">
+                            Especialización completa en Machine Learning que cubre fundamentos, supervisado y no supervisado, y aplicaciones prácticas.
+                        </p>
+                        
+                        <div class="certificate-actions">
+                            <a href="certificados/machine-learning-specialization.pdf" target="_blank" class="view-certificate">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Ver Certificado</span>
+                            </a>
+                            <div class="certificate-year">2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificado Regular 7 -->
+                <div class="certificate-card fade-in">
+                    <div class="certificate-thumbnail">
+                        <img src="https://via.placeholder.com/600x400/0A0A0A/00FF41/?text=Full+Stack" alt="Full Stack Web Development">
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Full Stack Web Development</h3>
+                        
+                        <div class="certificate-info">
+                            <div class="certificate-issuer">
+                                <i class="fas fa-building"></i>
+                                <span>The Hong Kong University & Coursera</span>
+                            </div>
+                            <div class="certificate-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Noviembre 2023</span>
+                            </div>
+                        </div>
+                        
+                        <p class="certificate-description">
+                            Especialización completa en desarrollo web full stack con React, Node.js, Express y MongoDB.
+                        </p>
+                        
+                        <div class="certificate-actions">
+                            <a href="certificados/fullstack-development.pdf" target="_blank" class="view-certificate">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Ver Certificado</span>
+                            </a>
+                            <div class="certificate-year">2023</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificado Regular 8 -->
+                <div class="certificate-card fade-in">
+                    <div class="certificate-thumbnail">
+                        <img src="https://via.placeholder.com/600x400/0A0A0A/00FF41/?text=Data+Science" alt="Data Science Professional">
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Professional Data Scientist</h3>
+                        
+                        <div class="certificate-info">
+                            <div class="certificate-issuer">
+                                <i class="fas fa-building"></i>
+                                <span>DataCamp</span>
+                            </div>
+                            <div class="certificate-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Agosto 2023</span>
+                            </div>
+                        </div>
+                        
+                        <p class="certificate-description">
+                            Certificación profesional que valida las habilidades avanzadas en Data Science, análisis estadístico y programación en R y Python.
+                        </p>
+                        
+                        <div class="certificate-actions">
+                            <a href="certificados/datacamp-data-scientist.pdf" target="_blank" class="view-certificate">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Ver Certificado</span>
+                            </a>
+                            <div class="certificate-year">2023</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Byron Jacque</h3>
+                    <p>Desarrollador Web & Ingeniero Informático</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/ByronJacque"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/byron-jacque-rivero-a1b670248/"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Byron Jacque. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+<script src="../Js/certificados.js"></script>
+</body>
+</html>

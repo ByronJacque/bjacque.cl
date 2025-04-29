@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos | Byron Jacque</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/proyecto.css">
+</head>
+<body>
+    <!-- Digital Grid -->
+    <div class="digital-grid"></div>
+    
+    <!-- Matrix Rain Canvas -->
+    <canvas id="matrix-rain"></canvas>
+    
+    <!-- Video de fondo -->
+    <div class="video-background">
+        <video autoplay muted loop id="background-video">
+            <source src="background-video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Header Fijo -->
+    <header>
+        <div class="logo">
+            <a href="../index.html" class="logo-text">Byron Jacque</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../Paginas/proyectos.html">Proyectos</a></li>
+                <li><a href="../Paginas/blogs.html">Blogs</a></li>
+                <li><a href="../Paginas/hobbys.html">Hobbys</a></li>
+                <li><a href="../Paginas/datos.html">Mis Datos</a></li>
+                <li><a href="../Paginas/certificados.html">Certificados</a></li>
+                <li><a href="../Paginas/musica.html">Música</a></li>
+            </ul>
+        </nav>
+        <div class="login-btn">
+            <button>Ingresar</button>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Contenido Principal - Proyectos -->
+    <main class="container">
+        <div class="page-title fade-in">
+            <h1>Mis Proyectos</h1>
+            <p>Una colección de los proyectos más destacados en los que he trabajado, demostrando mis habilidades técnicas y capacidad para resolver problemas complejos.</p>
+        </div>
+        
+        <div class="projects-grid">
+            <!-- Proyecto Destacado -->
+            <div class="project-card featured fade-in">
+                
+
+                
+                <div class="project-image">  
+                    <img src="../assets/images/furgonitelogo.png" alt="Proyecto destacado">
+                </div>
+
+                
+                <div class="project-content">
+                    <h3 class="project-title">Furgonite</h3>
+                    <p class="project-description">Desarrollé Furgonite, una aplicación para la gestión de furgones escolares con autenticación de usuarios, seguimiento en tiempo real, y un dashboard administrativo intuitivo. La plataforma permite a padres, conductores y administradores gestionar rutas, usuarios y notificaciones en un entorno seguro y escalable. Construido bajo arquitectura de microservicios.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">AWS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-globe"></i> Demo</a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proyecto Regular 1 -->
+            <div class="project-card fade-in">
+                <div class="project-image">
+                    <img src="../assets/images/paginaenlacesgallyas.png" alt="Proyecto 1">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Pagina Web EnlacesGallyas.com</h3>
+                    <p class="project-description">Desarrollé el sitio web oficial de Enlaces Gallyas, una empresa de telecomunicaciones en Chile. El sitio presenta una estructura clara, moderna y responsiva, orientada a mostrar los servicios de conectividad y cobertura nacional. Se optimizó para rendimiento, visualización móvil y posicionamiento SEO básico.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Wordpress</span>
+                        <span class="tech-tag">Html</span>
+                    </div>
+                    <div class="project-links">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proyecto Regular 2 -->
+            <div class="project-card fade-in">
+                <div class="project-image">
+                    <img src="../assets/images/1.png" alt="Proyecto 2">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Fomulario Intuitivo para generar tickets en apolo</h3>
+                    <p class="project-description">Desarrollé una plataforma web intuitiva para que los trabajadores de Gallyas Telecomunicaciones generen tickets internos de manera eficiente. El sistema se conecta directamente a la API REST de GLPI (Apolo) y permite asignar usuarios automáticamente, incluir observadores, y definir entidades específicas. El diseño está optimizado para la experiencia del usuario y se adapta a dispositivos móviles.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Glpi</span>
+                        <span class="tech-tag">html</span>
+                        <span class="tech-tag">Javascript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="../PaginasProyectos/FormularioFacil.html" class="project-link"><i class="fas fa-globe"></i> Demo</a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proyecto Regular 3 -->
+            <div class="project-card fade-in">
+                <div class="project-image">
+                    <img src="../assets/images/saccorreo.png" alt="Proyecto 3">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">SacCorreo</h3>
+                    <p class="project-description">Aplicación web desarrollada para Gallyas Telecomunicaciones, orientada a la gestión automática de tickets de soporte. El sistema permite a los clientes crear solicitudes mediante un formulario seguro conectado a la API de GLPI (Apolo), con validaciones, control de envíos y generación de enlaces temporales. Incluye reportes automáticos y un diseño visual atractivo inspirado en estilo Matrix.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">HTML</span>
+                    </div>
+                    <div class="project-links">
+                     
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proyecto Regular 4 -->
+            <div class="project-card fade-in">
+                <div class="project-image">
+                    <img src="../assets/images/enproceso.png" alt="Proyecto 4">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Proyecto Camiones</h3>
+                    <p class="project-description">Proyecto en proceso...</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">html</span>
+                        <span class="tech-tag">css</span>
+                        <span class="tech-tag">javascript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-globe"></i> Demo</a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proyecto Regular 5 -->
+            <div class="project-card fade-in">
+                <div class="project-image">
+                    <img src="../assets/images/enproceso.png" alt="Proyecto 5">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Pagina Web de Furgonite</h3>
+                    <p class="project-description">Proyecto en proceso...</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">spaCy</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-globe"></i> Demo</a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Byron Jacque</h3>
+                    <p>Desarrollador Web & Ingeniero Informático</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/ByronJacque"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/byron-jacque-rivero-a1b670248/"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Byron Jacque. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="../Js/proyecto.js"></script>
+</body>
+</html>

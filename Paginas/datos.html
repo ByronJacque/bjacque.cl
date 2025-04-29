@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Datos | Byron Jacque</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/datos.css">
+</head>
+<body>
+    <!-- Digital Grid -->
+    <div class="digital-grid"></div>
+    
+    <!-- Matrix Rain Canvas -->
+    <canvas id="matrix-rain"></canvas>
+    
+    <!-- Video de fondo -->
+    <div class="video-background">
+        <video autoplay muted loop id="background-video">
+            <source src="background-video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Header Fijo -->
+    <header>
+        <div class="logo">
+            <a href="../index.html" class="logo-text">Byron Jacque</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../Paginas/proyectos.html">Proyectos</a></li>
+                <li><a href="../Paginas/blogs.html">Blogs</a></li>
+                <li><a href="../Paginas/hobbys.html">Hobbys</a></li>
+                <li><a href="../Paginas/datos.html">Mis Datos</a></li>
+                <li><a href="../Paginas/certificados.html">Certificados</a></li>
+                <li><a href="../Paginas/musica.html">Música</a></li>
+            </ul>
+        </nav>
+        <div class="login-btn">
+            <button>Ingresar</button>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Contenido Principal - Mis Datos -->
+    <main class="container">
+        <div class="page-title fade-in">
+            <h1>Mis Datos</h1>
+            <p>Información de contacto y ubicación para que puedas conectarte conmigo.</p>
+        </div>
+        
+        <div class="data-content">
+            <div class="profile-photo fade-in">
+                <img src="../assets/images/fotoperfilghibli.jpeg" alt="Byron Jacque">
+            </div>
+        
+            <div class="contact-info fade-in">
+                <h2>Información de Contacto</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>Número de Teléfono</h3>
+                        <p>+56939056767</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>Correo Electrónico</h3>
+                        <p>byron.jacque16@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>Ubicación</h3>
+                        <p>Lampa, Región Metropolitana, Chile</p>
+                    </div>
+                </div>
+                
+                <div class="social-buttons">
+                    <a href="https://www.linkedin.com/in/byron-jacque-rivero-a1b670248/" target="_blank" class="social-btn linkedin">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/byron_smash/" target="_blank" class="social-btn instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    
+                    <a href="https://wa.me/56939056767?text=Hola%20Byron,%20te%20contacto%20desde%20tu%20sitio%20web" target="_blank" class="social-btn whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+                
+            </div>
+
+            <div class="map-container fade-in">
+                <div class="map-title">
+                    <i class="fas fa-map"></i>
+                    <h3>Comuna de Lampa</h3>
+                </div>
+                <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106551.02399358987!2d-70.93397698359373!3d-33.287673899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c0fa35880c79%3A0x87a4a31c9a74cc8!2sLampa%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1713832193341!5m2!1ses!2scl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Byron Jacque</h3>
+                    <p>Desarrollador Web & Ingeniero Informático</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/ByronJacque"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/byron-jacque-rivero-a1b670248/"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Byron Jacque. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="../Js/datos.js"></script>
+</body>
+</html>

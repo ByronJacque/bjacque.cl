@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs | Byron Jacque</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/blogs.css">
+</head>
+<body>
+    <!-- Digital Grid -->
+    <div class="digital-grid"></div>
+    
+    <!-- Matrix Rain Canvas -->
+    <canvas id="matrix-rain"></canvas>
+    
+    <!-- Video de fondo -->
+    <div class="video-background">
+        <video autoplay muted loop id="background-video">
+            <source src="background-video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Header Fijo -->
+    <header>
+        <div class="logo">
+            <a href="../index.html" class="logo-text">Byron Jacque</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../Paginas/proyectos.html">Proyectos</a></li>
+                <li><a href="../Paginas/blogs.html">Blogs</a></li>
+                <li><a href="../Paginas/hobbys.html">Hobbys</a></li>
+                <li><a href="../Paginas/datos.html">Mis Datos</a></li>
+                <li><a href="../Paginas/certificados.html">Certificados</a></li>
+                <li><a href="../Paginas/musica.html">Música</a></li>
+            </ul>
+        </nav>
+        <div class="login-btn">
+            <button>Ingresar</button>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+     <!-- Botón de Perfil de Steam -->
+     <a href="https://steamcommunity.com/profiles/76561198181523762/" target="_blank" class="steam-profile-btn">
+        <i class="fab fa-steam"></i>
+        <span>Mi Perfil de Steam</span>
+    </a>
+
+    <!-- Contenido Principal - Blogs -->
+    <main class="container">
+        <div class="page-title fade-in">
+            <h1>Blogs</h1>
+            <p>Mis pensamientos, experiencias y reseñas sobre videojuegos, anime, comida y viajes.</p>
+        </div>
+        
+        <!-- Filtros de categorías -->
+        <div class="blog-filters fade-in">
+            <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> Todos</button>
+            <button class="filter-btn" data-filter="videogames"><i class="fas fa-gamepad"></i> Videojuegos</button>
+            <button class="filter-btn" data-filter="anime"><i class="fas fa-tv"></i> Anime</button>
+            <button class="filter-btn" data-filter="food"><i class="fas fa-utensils"></i> Comida</button>
+            <button class="filter-btn" data-filter="travel"><i class="fas fa-plane"></i> Viajes</button>
+        </div>
+        
+        <!-- Sección de Videojuegos -->
+        <div class="blog-section videogames-section fade-in">
+            <h2 class="section-title"><i class="fas fa-gamepad"></i> Videojuegos</h2>
+            
+            <div class="blogs-grid">
+                <!-- Juego Destacado -->
+                <div class="featured-blog fade-in">
+                    <div class="blog-card videogames">
+                        <div class="blog-thumbnail">
+                            <img src="../assets/imagenesjuegos/eldenring.jpg" alt="Elden Ring">
+                            <div class="blog-category-badge">Videojuegos</div>
+                            <div class="achievement-badge">
+                                <img src="../assets/imagenesjuegosplatinados/completado.png" alt="Platinado">
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Elden Ring: Una obra maestra</h3>
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>23 de Abril, 2025</span>
+                                </div>
+                                <div class="blog-stats">100% Completado</div>
+                            </div>
+                            <div class="blog-text">
+                                <p>Después de más de 150 horas de juego, finalmente he platinado Elden Ring. La experiencia ha sido simplemente extraordinaria, combinando la fórmula clásica de FromSoftware con un mundo abierto lleno de secretos y desafíos.</p>
+                                <p>El diseño de niveles, los jefes memorables y la libertad para crear tu propio estilo de juego hacen que cada partida sea única. Sin duda, uno de los mejores juegos que he experimentado en años.</p>
+                            </div>
+                            <div class="blog-tags">
+                                <span class="blog-tag">FromSoftware</span>
+                                <span class="blog-tag">Souls-like</span>
+                                <span class="blog-tag">Open World</span>
+                                <span class="blog-tag">Platino</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Juego 2 -->
+                <div class="blog-card videogames fade-in">
+                    <div class="blog-thumbnail">
+                        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202304/2709/d61d4f1residvtKvBQgFXFym.png" alt="Baldur's Gate 3">
+                        <div class="blog-category-badge">Videojuegos</div>
+                        <div class="achievement-badge">
+                            <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/1086940/9ffbe5aba9b1efa5248493ed18aa22e6e96bbe4e.png" alt="Logro">
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Baldur's Gate 3: RPG del año</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>15 de Abril, 2025</span>
+                            </div>
+                            <div class="blog-stats">85% Completado</div>
+                        </div>
+                        <div class="blog-text">
+                            <p>Baldur's Gate 3 representa la evolución perfecta de los RPG de mesa a formato digital. Con personajes complejos, decisiones con peso real y un sistema de combate estratégico y satisfactorio.</p>
+                        </div>
+                        <div class="blog-tags">
+                            <span class="blog-tag">RPG</span>
+                            <span class="blog-tag">Larian Studios</span>
+                            <span class="blog-tag">D&D</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Juego 3 -->
+                <div class="blog-card videogames fade-in">
+                    <div class="blog-thumbnail">
+                        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202106/1704/JzL1NLQvok7Pgau6CYG5IyYu.png" alt="Ghost of Tsushima">
+                        <div class="blog-category-badge">Videojuegos</div>
+                        <div class="achievement-badge">
+                            <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/1895880/68fa03b9b05e02a6a252032613ab58725ddefb0c.png" alt="Trophy">
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Ghost of Tsushima: Belleza samurái</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>5 de Abril, 2025</span>
+                            </div>
+                            <div class="blog-stats">90% Completado</div>
+                        </div>
+                        <div class="blog-text">
+                            <p>Este juego es una carta de amor a las películas de samuráis y a la cultura japonesa. Su dirección artística impecable y su sistema de combate fluido lo convierten en una experiencia única.</p>
+                        </div>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Samurai</span>
+                            <span class="blog-tag">Open World</span>
+                            <span class="blog-tag">PlayStation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección de Anime -->
+        <div class="blog-section anime-section fade-in">
+            <h2 class="section-title"><i class="fas fa-tv"></i> Anime</h2>
+            
+            <div class="blogs-grid">
+                <!-- Anime 1 -->
+                <div class="blog-card anime fade-in">
+                    <div class="blog-thumbnail">
+                        <img src="https://via.placeholder.com/800x450/0A0A0A/FF6B6B/?text=Attack+on+Titan" alt="Attack on Titan">
+                        <div class="blog-category-badge">Anime</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Attack on Titan: Final temporada</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>18 de Marzo, 2025</span>
+                            </div>
+                            <div class="blog-stats">10/10</div>
+                        </div>
+                        <div class="blog-text">
+                            <p>La conclusión de Attack on Titan es un tour de force narrativo que transforma por completo la percepción que teníamos de la historia. Cada revelación recontextualiza eventos anteriores y cada personaje llega a un arco conclusivo.</p>
+                        </div>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Shonen</span>
+                            <span class="blog-tag">Drama</span>
+                            <span class="blog-tag">MAPPA</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Anime 2 -->
+                <div class="blog-card anime fade-in">
+                    <div class="blog-thumbnail">
+                        <img src="https://via.placeholder.com/800x450/0A0A0A/FF6B6B/?text=Jujutsu+Kaisen" alt="Jujutsu Kaisen">
+                        <div class="blog-category-badge">Anime</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Jujutsu Kaisen: Temporada 2</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2 de Febrero, 2025</span>
+                            </div>
+                            <div class="blog-stats">9/10</div>
+                        </div>
+                        <div class="blog-text">
+                            <p>El arco de Shibuya en la segunda temporada eleva Jujutsu Kaisen a nuevas alturas. La animación de MAPPA es extraordinaria y las secuencias de acción son simplemente espectaculares.</p>
+                        </div>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Shonen</span>
+                            <span class="blog-tag">Acción</span>
+                            <span class="blog-tag">Sobrenatural</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Anime 3 -->
+                <div class="blog-card anime fade-in">
+                    <div class="blog-thumbnail">
+                        <img src="https://via.placeholder.com/800x450/0A0A0A/FF6B6B/?text=Chainsaw+Man" alt="Chainsaw Man">
+                        <div class="blog-category-badge">Anime</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Chainsaw Man: Brutal y único</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>15 de Enero, 2025</span>
+                            </div>
+                            <div class="blog-stats">9.5/10</div>
+                        </div>
+                        <div class="blog-text">
+                            <p>Chainsaw Man combina horror, comedia y acción en una mezcla brutal que nunca sabes hacia dónde va a girar. Denji es un protagonista refrescante y los demonios son conceptualmente fascinantes.</p>
+                        </div>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Seinen</span>
+                            <span class="blog-tag">Horror</span>
+                            <span class="blog-tag">MAPPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección de Comida -->
+        <div class="blog-section food-section fade-in">
+            <h2 class="section-title"><i class="fas fa-utensils"></i> Comida</h2>
+            
+            <div class="blogs-grid">
+                <!-- Comida 1 -->
+                <div class="blog-card food fade-in">
+                    <div class="blog-thumbnail">
+                        <img src="https://via.placeholder.com/800x450/0A0A0A/FACC15/?text=Ramen" alt="Ramen">
+                        <div class="blog-category-badge">Comida</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">El mejor ramen de Santiago</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>10 de Abril, 2025</span>
+                            </div>
+                            <div class="blog-stats">5/5 Estrellas</div>
+                        </div>
+                        <div class="blog-text">
+                            <p>Este pequeño local escondido en Providencia sirve el ramen más auténtico que he probado fuera de Japón. El caldo lleva 24 horas de cocción y los fideos tienen la textura perfecta.</p>
+                        </div>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Japonés</span>
+                            <span class="blog-tag">Ramen</span>
+                            <span class="blog-tag">Santiago</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comida 2 -->
+                <div class="blog-card food fade-in">
+                    <div class="blog-thumbnail">
+                        <img src="https://via.placeholder.com/800x450/0A0A0A/FACC15/?text=BBQ" alt="BBQ">
+                        <div class="blog-category-badge">Comida</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Experiencia BBQ en la capital</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>25 de Marzo, 2025</span>
+                            </div>
+                            <div class="blog-stats">4.5/5 Estrellas</div>
+                        </div>
+                        <div class="blog-text">
+                            <p>Las costillas ahumadas durante 12 horas son el plato estrella de este local especializado en BBQ americano. La salsa casera tiene el equilibrio perfecto entre dulce y picante.</p>
+                        </div>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Americana</span>
+                            <span class="blog-tag">BBQ</span>
+                            <span class="blog-tag">Carnes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección de Viajes -->
+        <div class="blog-section travel-section fade-in">
+            <h2 class="section-title"><i class="fas fa-plane"></i> Viajes</h2>
+            
+            <div class="blogs-grid">
+                <!-- Viaje 1 -->
+                <div class="blog-card travel fade-in">
+                    <div class="blog-thumbnail">
+                        <img src="https://via.placeholder.com/800x450/0A0A0A/10B981/?text=Patagonia" alt="Patagonia">
+                        <div class="blog-category-badge">Viajes</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Torres del Paine: Aventura en la Patagonia</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>20 de Febrero, 2025</span>
+                            </div>
+                            <div class="blog-stats">5 días</div>
+                        </div>
+                        <div class="blog-text">
+                            <p>El circuito W en Torres del Paine es sin duda una de las experiencias de trekking más impresionantes del mundo. Los paisajes cambian constantemente entre bosques, lagos turquesa y glaciares imponentes.</p>
+                        </div>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Chile</span>
+                            <span class="blog-tag">Trekking</span>
+                            <span class="blog-tag">Naturaleza</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Viaje 2 -->
+                <div class="blog-card travel fade-in">
+                    <div class="blog-thumbnail">
+                        <img src="https://via.placeholder.com/800x450/0A0A0A/10B981/?text=Tokio" alt="Tokio">
+                        <div class="blog-category-badge">Viajes</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Una semana en Tokio</h3>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>5 de Enero, 2025</span>
+                            </div>
+                            <div class="blog-stats">7 días</div>
+                        </div>
+                        <div class="blog-text">
+                            <p>Tokio es un contraste fascinante entre lo tradicional y lo ultramoderno. Desde los templos de Asakusa hasta los rascacielos de Shinjuku, cada barrio ofrece una experiencia completamente diferente.</p>
+                        </div>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Japón</span>
+                            <span class="blog-tag">Urbano</span>
+                            <span class="blog-tag">Cultura</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+       
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Byron Jacque</h3>
+                    <p>Desarrollador Web & Ingeniero Informático</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Byron Jacque. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+     <script src="../Js/blogs.js"></script>
+</body>
+</html>

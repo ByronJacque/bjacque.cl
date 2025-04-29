@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Hobbys | Byron Jacque</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="../css/hobbys.css">
+</head>
+<body>
+    <!-- Digital Grid -->
+    <div class="digital-grid"></div>
+    
+    <!-- Matrix Rain Canvas -->
+    <canvas id="matrix-rain"></canvas>
+    
+    <!-- Video de fondo -->
+    <div class="video-background">
+        <video autoplay muted loop id="background-video">
+            <source src="background-video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Header Fijo -->
+    <header>
+        <div class="logo">
+            <a href="../index.html" class="logo-text">Byron Jacque</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../Paginas/proyectos.html">Proyectos</a></li>
+                <li><a href="../Paginas/blogs.html">Blogs</a></li>
+                <li><a href="../hobbys.html">Hobbys</a></li>
+                <li><a href="../Paginas/datos.html">Mis Datos</a></li>
+                <li><a href="../Paginas/certificados.html">Certificados</a></li>
+                <li><a href="../Paginas/musica.html">Música</a></li>
+            </ul>
+        </nav>
+        <div class="login-btn">
+            <button>Ingresar</button>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Contenido Principal - Hobbys -->
+    <main class="container">
+        <div class="page-title fade-in">
+            <h1>Mis Hobbys</h1>
+            <p>Actividades y pasiones a las que dedico mi tiempo libre, más allá del código.</p>
+        </div>
+        
+        <!-- Hobby Favorito -->
+        <div class="favorite-hobby fade-in">
+            <div class="favorite-image">
+                <img src="../assets/imagenesjuegos/videojuegos.jpg" alt="Gaming">
+            </div>
+            <div class="favorite-content">
+                <h2 class="favorite-title">Gaming</h2>
+                <p class="favorite-subtitle">Mi pasión por los videojuegos desde la infancia</p>
+                <p class="favorite-description">
+                    Los videojuegos han sido una pasión constante en mi vida desde que tuve mi primera consola. 
+                    Me encanta explorar mundos virtuales, resolver acertijos y experimentar historias interactivas. 
+                    A través de los videojuegos, no solo encuentro entretenimiento, sino también inspiración para mis 
+                    proyectos de desarrollo y diseño.
+                </p>
+                
+                <div class="favorite-stats">
+                    <div class="favorite-stat">
+                        <span class="favorite-stat-value">18+</span>
+                        <span class="favorite-stat-label">Años jugando</span>
+                    </div>
+                    <div class="favorite-stat">
+                        <span class="favorite-stat-value">200+</span>
+                        <span class="favorite-stat-label">Juegos completados</span>
+                    </div>
+                    <div class="favorite-stat">
+                        <span class="favorite-stat-value">Todas Las</span>
+                        <span class="favorite-stat-label">Plataformas</span>
+                    </div>
+                </div>
+                
+                <div class="favorite-quote">
+                    <p>"Los videojuegos son la perfecta combinación de tecnología, arte y narrativa. Cada vez que juego, aprendo algo nuevo que aplico en mi carrera como desarrollador."</p>
+                    <cite>- Mi filosofía gamer</cite>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabs de categorías -->
+        <div class="hobby-tabs fade-in">
+            <div class="hobby-tab active" data-category="tech">
+                <i class="fas fa-laptop-code"></i> Tecnología
+            </div>
+            <div class="hobby-tab" data-category="sport">
+                <i class="fas fa-running"></i> Deportes
+            </div>
+            <div class="hobby-tab" data-category="creative">
+                <i class="fas fa-paint-brush"></i> Creatividad
+            </div>
+            <div class="hobby-tab" data-category="travel">
+                <i class="fas fa-plane"></i> Viajes
+            </div>
+        </div>
+        
+        <!-- Contenido por categorías -->
+        <div class="hobby-content">
+            <!-- Categoría: Tecnología -->
+            <div class="hobby-category active" id="tech">
+                <div class="hobby-grid">
+                    <!-- Hobby 1 -->
+                    <div class="hobby-card fade-in">
+                        <div class="hobby-card-inner">
+                            <div class="hobby-front">
+                                <div class="hobby-image">
+                                    <img src="../assets/images/armadodecomputadores.png" alt="Robótica">
+                                </div>
+                                <div class="hobby-content-front">
+                                    <h3 class="hobby-title">Armar Computadores</h3>
+                                    <p class="hobby-subtitle">Personales, Amigos y clientes</p>
+                                    <p class="hobby-description">
+                                        Desarrollo de soluciones personalizadas en armado y configuración de 
+                                        computadores para uso personal, académico y profesional. Optimización
+                                        de hardware y software según las necesidades del usuario.
+                                    </p>
+                                    <div class="hobby-tags">
+                                        <span class="hobby-tag">PC</span>
+                                        <span class="hobby-tag">Ti</span>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hobby-back">
+                                <div class="hobby-back-icon">
+                            
+                                </div>
+                                <h3 class="hobby-back-title">Armado De Computadores</h3>
+                                <p class="hobby-back-content">
+                                    Ensamblaje de computadores personalizados según uso (gaming, oficina, diseño).
+                                    Instalación de sistemas operativos y optimización de drivers.
+                                    Configuración de BIOS, overclock básico y limpieza de hardware.
+                                    Asesoría en elección de componentes según presupuesto y necesidad. 
+                                </p>
+                                <div class="hobby-level">
+                                    <div class="hobby-level-title">
+                                        <span>Nivel de experiencia</span>
+                                        <span>Avanzado</span>
+                                    </div>
+                                    <div class="hobby-level-bar">
+                                        <div class="hobby-level-progress" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hobby 2 -->
+                    <div class="hobby-card fade-in">
+                        <div class="hobby-card-inner">
+                            <div class="hobby-front">
+                                <div class="hobby-image">
+                                    <img src="https://via.placeholder.com/600x400/0A0A0A/00FF41/?text=IA" alt="Inteligencia Artificial">
+                                </div>
+                                <div class="hobby-content-front">
+                                    <h3 class="hobby-title">Inteligencia Artificial</h3>
+                                    <p class="hobby-subtitle">Explorando Machine Learning</p>
+                                    <p class="hobby-description">
+                                        Investigación y desarrollo de modelos de ML en mi tiempo libre. 
+                                        Actualmente experimentando con redes neuronales para visión por computadora.
+                                    </p>
+                                    <div class="hobby-tags">
+                                        <span class="hobby-tag">TensorFlow</span>
+                                        <span class="hobby-tag">Python</span>
+                                        <span class="hobby-tag">Computer Vision</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hobby-back">
+                                <div class="hobby-back-icon">
+                                    
+                                </div>
+                                <h3 class="hobby-back-title">Inteligencia Artificial</h3>
+                                <p class="hobby-back-content">
+                                    Me fascina cómo los algoritmos pueden aprender patrones y tomar decisiones. He creado modelos para clasificación 
+                                    de imágenes, detección de objetos e incluso un pequeño asistente de voz para controlar mi habitación.
+                                </p>
+                                <div class="hobby-level">
+                                    <div class="hobby-level-title">
+                                        <span>Nivel de experiencia</span>
+                                        <span>Avanzado</span>
+                                    </div>
+                                    <div class="hobby-level-bar">
+                                        <div class="hobby-level-progress" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hobby 3 -->
+                    <div class="hobby-card fade-in">
+                        <div class="hobby-card-inner">
+                            <div class="hobby-front">
+                                <div class="hobby-image">
+                                    <img src="https://via.placeholder.com/600x400/0A0A0A/00FF41/?text=Ciberseguridad" alt="Ciberseguridad">
+                                </div>
+                                <div class="hobby-content-front">
+                                    <h3 class="hobby-title">Ciberseguridad</h3>
+                                    <p class="hobby-subtitle">Hacking ético y seguridad informática</p>
+                                    <p class="hobby-description">
+                                        Participo en plataformas de CTF (Capture The Flag) y me interesa el análisis de vulnerabilidades en sistemas.
+                                    </p>
+                                    <div class="hobby-tags">
+                                        <span class="hobby-tag">Pentesting</span>
+                                        <span class="hobby-tag">CTF</span>
+                                        <span class="hobby-tag">Linux</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hobby-back">
+                                <div class="hobby-back-icon">
+                                  
+                                </div>
+                                <h3 class="hobby-back-title">Ciberseguridad</h3>
+                                <p class="hobby-back-content">
+                                    La seguridad informática es una pasión que me permite entender cómo proteger 
+                                    mejor mis aplicaciones. Participo regularmente en competiciones de CTF y he completado 
+                                    varias certificaciones en seguridad informática.
+                                </p>
+                                <div class="hobby-level">
+                                    <div class="hobby-level-title">
+                                        <span>Nivel de experiencia</span>
+                                        <span>Intermedio</span>
+                                    </div>
+                                    <div class="hobby-level-bar">
+                                        <div class="hobby-level-progress" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Categoría: Deportes -->
+            <div class="hobby-category" id="sport">
+                <div class="hobby-grid">
+                    <!-- Hobby 4 -->
+                    <div class="hobby-card fade-in">
+                        <div class="hobby-card-inner">
+                            <div class="hobby-front">
+                                <div class="hobby-image">
+                                    <img src="https://via.placeholder.com/600x400/0A0A0A/00FF41/?text=Running" alt="Running">
+                                </div>
+                                <div class="hobby-content-front">
+                                    <h3 class="hobby-title">Running</h3>
+                                    <p class="hobby-subtitle">Carreras de larga distancia</p>
+                                    <p class="hobby-description">
+                                        El running me ayuda a despejar la mente y mantenerme en forma. Participo regularmente en maratones y carreras de 10K.
+                                    </p>
+                                    <div class="hobby-tags">
+                                        <span class="hobby-tag">Maratón</span>
+                                        <span class="hobby-tag">Trail</span>
+                                        <span class="hobby-tag">10K</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hobby-back">
+                                <div class="hobby-back-icon">
+                                    <i class="fas fa-running"></i>
+                                </div>
+                                <h3 class="hobby-back-title">Running</h3>
+                                <p class="hobby-back-content">
+                                    Empecé a correr hace 5 años como una forma de mantenerme en forma, pero se convirtió en una pasión. 
+                                    He completado 3 maratones y varios trail runs. Mi mejor tiempo en 10K es de 42 minutos.
+                                </p>
+                                <div class="hobby-level">
+                                    <div class="hobby-level-title">
+                                        <span>Nivel de experiencia</span>
+                                        <span>Avanzado</span>
+                                    </div>
+                                    <div class="hobby-level-bar">
+                                        <div class="hobby-level-progress" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hobby 5 -->
+                    <div class="hobby-card fade-in">
+                        <div class="hobby-card-inner">
+                            <div class="hobby-front">
+                                <div class="hobby-image">
+                                    <img src="https://via.placeholder.com/600x400/0A0A0A/00FF41/?text=Ciclismo" alt="Ciclismo">
+                                </div>
+                                <div class="hobby-content-front">
+                                    <h3 class="hobby-title">Ciclismo</h3>
+                                    <p class="hobby-subtitle">Mountain Bike y ciclismo urbano</p>
+                                    <p class="hobby-description">
+                                        Disfruto de los paseos en bicicleta por la ciudad y de rutas de montaña los fines de semana.
+                                    </p>
+                                    <div class="hobby-tags">
+                                        <span class="hobby-tag">MTB</span>
+                                        <span class="hobby-tag">Rutas</span>
+                                        <span class="hobby-tag">Naturaleza</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hobby-back">
+                                <div class="hobby-back-icon">
+                                    <i class="fas fa-bicycle"></i>
+                                </div>
+                                <h3 class="hobby-back-title">Ciclismo</h3>
+                                <p class="hobby-back-content">
+                                    El ciclismo me permite conectar con la naturaleza y explorar nuevos lugares. 
+                                    Mi ruta favorita es un circuito de 50km alrededor de los cerros. 
+                                    También uso la bicicleta como medio de transporte diario.
+                                </p>
+                                <div class="hobby-level">
+                                    <div class="hobby-level-title">
+                                        <span>Nivel de experiencia</span>
+                                        <span>Intermedio</span>
+                                    </div>
+                                    <div class="hobby-level-bar">
+                                        <div class="hobby-level-progress" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hobby 6 -->
+                    <div class="hobby-card fade-in">
+                        <div class="hobby-card-inner">
+                            <div class="hobby-front">
+                                <div class="hobby-image">
+                                    <img src="https://via.placeholder.com/600x400/0A0A0A/00FF41/?text=Natacion" alt="Natación">
+                                </div>
+                                <div class="hobby-content-front">
+                                    <h3 class="hobby-title">Natación</h3>
+                                    <p class="hobby-subtitle">Entrenamiento acuático</p>
+                                    <p class="hobby-description">
+                                        La natación es mi forma favorita de hacer ejercicio de bajo impacto. Practico principalmente estilo libre y mariposa.
+                                    </p>
+                                    <div class="hobby-tags">
+                                        <span class="hobby-tag">Estilo libre</span>
+                                        <span class="hobby-tag">Mariposa</span>
+                                        <span class="hobby-tag">Entrenamiento</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hobby-back">
+                                <div class="hobby-back-icon">
+                                    <i class="fas fa-swimmer"></i>
+                                </div>
+                                <h3 class="hobby-back-title">Natación</h3>
+                                <p class="hobby-back-content">
+                                    Comencé a nadar para complementar mis entrenamientos de running y reducir el impacto en las articulaciones. 
+                                    Actualmente nado 3 veces por semana, aproximadamente 2km por sesión.
+                                </p>
+                                <div class="hobby-level">
+                                    <div class="hobby-level-title">
+                                        <span>Nivel de experiencia</span>
+                                        <span>Intermedio</span>
+                                    </div>
+                                    <div class="hobby-level-bar">
+                                        <div class="hobby-level-progress" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Categoría: Creatividad -->
+            <div class="hobby-category" id="creative">
+                <div class="hobby-grid">
+                    <!-- Hobby 7 -->
+                    <div class="hobby-card fade-in">
+                        <div class="hobby-card-inner">
+                            <div class="hobby-front">
+                                <div class="hobby-image">
+                                    <img src="https://via.placeholder.com/600x400/0A0A0A/00FF41/?text=Fotografia" alt="Fotografía">
+                                </div>
+                                <div class="hobby-content-front">
+                                    <h3 class="hobby-title">Fotografía</h3>
+                                    <p class="hobby-subtitle">Capturando momentos y paisajes</p>
+                                    <p class="hobby-description">
+                                        La fotografía me permite capturar momentos y expresar mi creatividad. Me especializo en fotografía urbana y de paisajes.
+                                    </p>
+                                    <div class="hobby-tags">
+                                        <span class="hobby-tag">Urbana</span>
+                                        <span class="hobby-tag">Paisajes</span>
+                                        <span class="hobby-tag">Edición</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hobby-back">
+                                <div class="hobby-back-icon">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <h3 class="hobby-back-title">Fotografía</h3>
+                                <p class="hobby-back-content">
+                                    Comencé con la fotografía durante un viaje a la Patagonia. 
+                                    Desde entonces, siempre llevo mi cámara a todos lados. 
+                                    He participado en algunas exposiciones locales y tengo un pequeño 
+                                    portafolio en Instagram.
+                                </p>
+                                <div class="hobby-level">
+                                    <div class="hobby-level-title">
+                                        <span>Nivel de experiencia</span>
+                                        <span>Intermedio</span>
+                                    </div>
+                                    <div class="hobby-level-bar">
+                                        <div class="hobby-level-progress" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hobby 8 -->
+                    <div class="hobby-card fade-in">
+                        <div class="hobby-card-inner">
+                            <div class="hobby-front">
+                                <div class="hobby-image">
+                                    <img src="https://via.placeholder.com/600x400/0A0A0A/00FF41/?text=Dibujo" alt="Dibujo Digital">
+                                </div>
+                                <div class="hobby-content-front">
+                                    <h3 class="hobby-title">Dibujo Digital</h3>
+                                    <p class="hobby-subtitle">Ilustración y diseño gráfico</p>
+                                    <p class="hobby-description">
+                                        Creo ilustraciones digitales y diseños para proyectos personales. Me gusta experimentar con diferentes estilos.
+                                    </p>
+                                    <div class="hobby-tags">
+                                        <span class="hobby-tag">Ilustración</span>
+                                        <span class="hobby-tag">Photoshop</span>
+                                        <span class="hobby-tag">Procreate</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hobby-back">
+                                <div class="hobby-back-icon">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <h3 class="hobby-back-title">Dibujo Digital</h3>
+                                <p class="hobby-back-content">
+                                    El dibujo digital me ayuda a plasmar ideas visuales para mis proyectos. 
+                                    Comencé con Photoshop y actualmente uso Procreate en iPad. He diseñado logotipos 
+                                    para amigos y algunos de mis propios proyectos web.
+                                </p>
+                                <div class="hobby-level">
+                                    <div class="hobby-level-title">
+                                        <span>Nivel de experiencia</span>
+                                        <span>Intermedio</span>
+                                    </div>
+                                    <div class="hobby-level-bar">
+                                        <div class="hobby-level-progress" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hobby 9 -->
+                    <div class="hobby-card fade-in">
+                        <div class="hobby-card-inner">
+                            <div class="hobby-front">
+                                <div class="hobby-image">
+                                    <img src="https://via.placeholder.com/600x400/0A0A0A/00FF41/?text=Musica" alt="Producción Musical">
+                                </div>
+                                <div class="hobby-content-front">
+                                    <h3 class="hobby-title">Producción Musical</h3>
+                                    <p class="hobby-subtitle">Creación de música electrónica</p>
+                                    <p class="hobby-description">
+                                        Produzco música electrónica como hobby. Me fascina experimentar con diferentes sonidos y ritmos.
+                                    </p>
+                                    <div class="hobby-tags">
+                                        <span class="hobby-tag">Ableton</span>
+                                        <span class="hobby-tag">Electrónica</span>
+                                        <span class="hobby-tag">Synthesizers</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hobby-back">
+                                <div class="hobby-back-icon">
+                                    <i class="fas fa-music"></i>
+                                </div>
+                                <h3 class="hobby-back-title">Producción Musical</h3>
+                                <p class="hobby-back-content">
+                                    La producción musical es mi forma de expresión artística más reciente. 
+                                    Empecé hace 3 años y ya he compuesto varios temas de música electrónica con influencias ambient. 
+                                    Algunos los he usado en mis propios proyectos web.
+                                </p>
+                                <div class="hobby-level">
+                                    <div class="hobby-level-title">
+                                        <span>Nivel de experiencia</span>
+                                        <span>Principiante</span>
+                                    </div>
+                                    <div class="hobby-level-bar">
+                                        <div class="hobby-level-progress" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Categoría: Viajes -->
+            <div class="hobby-category" id="travel">
+                <div class="hobby-grid">
+                    <!-- Hobby 10 -->
+                    <div class="hobby-card fade-in">
+                        <div class="hobby-card-inner">
+                            <div class="hobby-front">
+                                <div class="hobby-image">
+                                    <img src="https://via.placeholder.com/600x400/0A0A0A/00FF41/?text=Mochilero" alt="Mochilero">
+                                </div>
+                                <div class="hobby-content-front">
+                                    <h3 class="hobby-title">Mochilero</h3>
+                                    <p class="hobby-subtitle">Viajes de bajo presupuesto</p>
+                                    <p class="hobby-description">
+                                        Viajar como mochilero me permite conocer lugares auténticos y conectar con culturas locales de manera más profunda.
+                                    </p>
+                                    <div class="hobby-tags">
+                                        <span class="hobby-tag">Sudamérica</span>
+                                        <span class="hobby-tag">Aventura</span>
+                                        <span class="hobby-tag">Naturaleza</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hobby-back">
+                                <div class="hobby-back-icon">
+                                    <i class="fas fa-hiking"></i>
+                                </div>
+                                <h3 class="hobby-back-title">Mochilero</h3>
+                                <p class="hobby-back-content">
+                                    He recorrido gran parte de Sudamérica como mochilero. Mi viaje más largo fue de 3 meses 
+                                    por Perú, Bolivia y el norte de Chile. Estas experiencias me han enseñado a adaptarme a 
+                                    diferentes situaciones y a apreciar la diversidad cultural.
+                                </p>
+                                <div class="hobby-level">
+                                    <div class="hobby-level-title">
+                                        <span>Nivel de experiencia</span>
+                                        <span>Avanzado</span>
+                                    </div>
+                                    <div class="hobby-level-bar">
+                                        <div class="hobby-level-progress" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hobby 11 -->
+                    <div class="hobby-card fade-in">
+                        <div class="hobby-card-inner">
+                            <div class="hobby-front">
+                                <div class="hobby-image">
+                                    <img src="https://via.placeholder.com/600x400/0A0A0A/00FF41/?text=Montanismo" alt="Montañismo">
+                                </div>
+                                <div class="hobby-content-front">
+                                    <h3 class="hobby-title">Montañismo</h3>
+                                    <p class="hobby-subtitle">Exploración de alta montaña</p>
+                                    <p class="hobby-description">
+                                        El montañismo me desafía física y mentalmente mientras me conecta con la naturaleza y paisajes increíbles.
+                                    </p>
+                                    <div class="hobby-tags">
+                                        <span class="hobby-tag">Trekking</span>
+                                        <span class="hobby-tag">Andes</span>
+                                        <span class="hobby-tag">Escalada</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hobby-back">
+                                <div class="hobby-back-icon">
+                                    <i class="fas fa-mountain"></i>
+                                </div>
+                                <h3 class="hobby-back-title">Montañismo</h3>
+                                <p class="hobby-back-content">
+                                    La montaña me enseña sobre perseverancia y superación. He ascendido varios cerros de los Andes, 
+                                    entre ellos el Aconcagua hasta el campamento base. Planeo completar la 
+                                    subida a la cumbre en los próximos años.
+                                </p>
+                                <div class="hobby-level">
+                                    <div class="hobby-level-title">
+                                        <span>Nivel de experiencia</span>
+                                        <span>Intermedio</span>
+                                    </div>
+                                    <div class="hobby-level-bar">
+                                        <div class="hobby-level-progress" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hobby 12 -->
+                    <div class="hobby-card fade-in">
+                        <div class="hobby-card-inner">
+                            <div class="hobby-front">
+                                <div class="hobby-image">
+                                    <img src="https://via.placeholder.com/600x400/0A0A0A/00FF41/?text=Gastronomia" alt="Gastronomía">
+                                </div>
+                                <div class="hobby-content-front">
+                                    <h3 class="hobby-title">Gastronomía</h3>
+                                    <p class="hobby-subtitle">Exploración culinaria</p>
+                                    <p class="hobby-description">
+                                        Descubrir nuevos sabores y platos típicos es una parte esencial de mis viajes. Me encanta probar la cocina local.
+                                    </p>
+                                    <div class="hobby-tags">
+                                        <span class="hobby-tag">Cocina local</span>
+                                        <span class="hobby-tag">Mercados</span>
+                                        <span class="hobby-tag">Street food</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hobby-back">
+                                <div class="hobby-back-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <h3 class="hobby-back-title">Gastronomía</h3>
+                                <p class="hobby-back-content">
+                                    Para mí, viajar y probar la gastronomía local son inseparables. Siempre busco restaurantes 
+                                    locales auténticos y mercados tradicionales. Incluso he tomado clases de cocina en algunos 
+                                    de mis viajes para aprender recetas típicas.
+                                </p>
+                                <div class="hobby-level">
+                                    <div class="hobby-level-title">
+                                        <span>Nivel de experiencia</span>
+                                        <span>Intermedio</span>
+                                    </div>
+                                    <div class="hobby-level-bar">
+                                        <div class="hobby-level-progress" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Byron Jacque</h3>
+                    <p>Desarrollador Web & Ingeniero Informático</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/ByronJacque"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/byron-jacque-rivero-a1b670248/"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Byron Jacque. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+<script src="../Js/hobbys.js"></script>
+</body>
+</html>

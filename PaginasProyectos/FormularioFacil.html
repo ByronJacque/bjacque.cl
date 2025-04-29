@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Tickets</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      padding: 30px 20px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .header p {
+      color: #666;
+      font-size: 16px;
+    }
+
+    .ticket-icon {
+      background: #764ba2;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+    }
+
+    .ticket-icon i {
+      font-size: 36px;
+      color: white;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 6px;
+      font-weight: 500;
+      padding-left: 4px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #764ba2;
+      box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2);
+      background-color: #fff;
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .input-icon {
+      position: relative;
+    }
+
+    .input-icon i {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 15px;
+      color: #888;
+    }
+
+    .input-icon input {
+      padding-left: 40px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(118, 75, 162, 0.3);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(118, 75, 162, 0.4);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 5px rgba(118, 75, 162, 0.5);
+    }
+
+    .priority-selector {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .priority-option {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border-radius: 6px;
+      background-color: #f0f0f0;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .priority-option:first-child {
+      margin-left: 0;
+    }
+
+    .priority-option:last-child {
+      margin-right: 0;
+    }
+
+    .priority-option.low {
+      border: 1px solid #8bc34a;
+      color: #689f38;
+    }
+
+    .priority-option.medium {
+      border: 1px solid #ffc107;
+      color: #ff8f00;
+    }
+
+    .priority-option.high {
+      border: 1px solid #f44336;
+      color: #d32f2f;
+    }
+
+    .priority-option.selected {
+      color: white;
+      font-weight: 500;
+    }
+
+    .priority-option.selected.low {
+      background-color: #8bc34a;
+    }
+
+    .priority-option.selected.medium {
+      background-color: #ffc107;
+    }
+
+    .priority-option.selected.high {
+      background-color: #f44336;
+    }
+
+    .form-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .form-footer a {
+      color: #764ba2;
+      text-decoration: none;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Estilos para el autocompletado */
+    .autocomplete {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .autocomplete-items {
+      position: absolute;
+      border: 1px solid #ddd;
+      border-top: none;
+      z-index: 99;
+      top: 100%;
+      left: 0;
+      right: 0;
+      border-radius: 0 0 8px 8px;
+      max-height: 200px;
+      overflow-y: auto;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .autocomplete-items div {
+      padding: 10px 15px;
+      cursor: pointer;
+      background-color: #fff;
+      border-bottom: 1px solid #f5f5f5;
+      transition: all 0.2s ease;
+    }
+
+    .autocomplete-items div:hover {
+      background-color: #f2f0ff;
+    }
+
+    .autocomplete-items div.selected {
+      background-color: #e6e1ff;
+    }
+
+    .autocomplete-active {
+      background-color: #e6e1ff !important;
+    }
+
+    /* Estilos para el spinner de carga */
+    .spinner {
+      display: inline-block;
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+    }
+
+    .spinner:after {
+      content: " ";
+      display: block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #764ba2;
+      border-color: #764ba2 transparent #764ba2 transparent;
+      animation: spinner 1.2s linear infinite;
+    }
+
+    @keyframes spinner {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px 15px;
+      }
+      
+      .header h1 {
+        font-size: 24px;
+      }
+      
+      .priority-selector {
+        flex-direction: column;
+      }
+      
+      .priority-option {
+        margin: 5px 0;
+      }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="ticket-icon">
+        <i class="fas fa-ticket-alt"></i>
+      </div>
+      <h1>Sistema de Tickets</h1>
+      <p>Complete el formulario para enviar su solicitud</p>
+    </div>
+
+    <form method="post" action="/enviar_ticket/">
+      <div class="form-group">
+        <label for="usuario">Usuario</label>
+        <div class="input-icon">
+          <i class="fas fa-user"></i>
+          <div class="autocomplete">
+            <input type="text" id="usuario" name="usuario" placeholder="Escriba o seleccione un usuario" required />
+            <div id="spinner-usuario" class="spinner hidden"></div>
+            <div class="autocomplete-items" id="autocomplete-list" style="display: none;"></div>
+          </div>
+        </div>
+        <input type="hidden" id="usuario_id" name="usuario_id" value="" />
+      </div>
+
+      <div class="form-group">
+        <label for="titulo">Título del Ticket</label>
+        <div class="input-icon">
+          <i class="fas fa-heading"></i>
+          <input type="text" id="titulo" name="titulo" placeholder="Resumen breve del problema" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Prioridad</label>
+        <div class="priority-selector">
+          <div class="priority-option low" data-value="low">
+            <i class="fas fa-thermometer-quarter"></i> Baja
+          </div>
+          <div class="priority-option medium selected" data-value="medium">
+            <i class="fas fa-thermometer-half"></i> Media
+          </div>
+          <div class="priority-option high" data-value="high">
+            <i class="fas fa-thermometer-full"></i> Alta
+          </div>
+        </div>
+        <input type="hidden" id="priority" name="priority" value="medium" />
+      </div>
+
+      <div class="form-group">
+        <label for="problematica">Descripción de la Problemática</label>
+        <textarea id="problematica" name="problematica" placeholder="Explique detalladamente su problema..." required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        <i class="fas fa-paper-plane"></i> Enviar Ticket
+      </button>
+
+      <div class="form-footer">
+        <span>¿Ya tienes un ticket?</span>
+        <a href="#">Verificar estado</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Variables para almacenar la lista de usuarios
+      let usuarios = [];
+      const usuarioInput = document.getElementById("usuario");
+      const usuarioIdInput = document.getElementById("usuario_id");
+      const autocompleteList = document.getElementById("autocomplete-list");
+      const spinnerUsuario = document.getElementById("spinner-usuario");
+      
+      // Cargar usuarios desde la API
+      function cargarUsuarios() {
+        spinnerUsuario.classList.remove("hidden");
+        
+        fetch("api/usuarios/")
+          .then(response => {
+            if (!response.ok) throw new Error("Error en la respuesta de la API");
+            return response.json();
+          })
+          .then(data => {
+            usuarios = data;
+            spinnerUsuario.classList.add("hidden");
+          })
+          .catch(error => {
+            console.error("Error al cargar usuarios:", error);
+            spinnerUsuario.classList.add("hidden");
+            
+            // Usuarios de respaldo en caso de error
+            usuarios = [
+              { id: "1", nombre: "bjacque" },
+              { id: "2", nombre: "gserrano" },
+              { id: "3", nombre: "cpuas" }
+            ];
+          });
+      }
+      
+      // Iniciar la carga de usuarios
+      cargarUsuarios();
+      
+      // Función para el autocompletado
+      function setupAutocomplete() {
+        let currentFocus = -1;
+        
+        // Al escribir en el campo de entrada
+        usuarioInput.addEventListener("input", function(e) {
+          let val = this.value;
+          closeAllLists();
+          
+          if (!val) { return false; }
+          currentFocus = -1;
+          
+          autocompleteList.style.display = "block";
+          autocompleteList.innerHTML = "";
+          
+          // Filtrar usuarios que coincidan con lo que escribió el usuario
+          const filteredUsers = usuarios.filter(usuario => 
+            usuario.nombre.toLowerCase().includes(val.toLowerCase())
+          );
+          
+          for (let i = 0; i < filteredUsers.length; i++) {
+            const usuario = filteredUsers[i];
+            const item = document.createElement("DIV");
+            
+            // Resaltar la parte coincidente del texto
+            const nombreDisplay = usuario.nombre;
+            const index = nombreDisplay.toLowerCase().indexOf(val.toLowerCase());
+            
+            if (index > -1) {
+              item.innerHTML = nombreDisplay.substring(0, index) +
+                               "<strong>" + nombreDisplay.substring(index, index + val.length) + "</strong>" +
+                               nombreDisplay.substring(index + val.length);
+            } else {
+              item.innerHTML = nombreDisplay;
+            }
+            
+            item.innerHTML += "<input type='hidden' value='" + usuario.nombre + "' data-id='" + usuario.id + "'>";
+            
+            item.addEventListener("click", function(e) {
+              const input = this.getElementsByTagName("input")[0];
+              usuarioInput.value = input.value;
+              usuarioIdInput.value = input.getAttribute("data-id");
+              closeAllLists();
+            });
+            
+            autocompleteList.appendChild(item);
+          }
+        });
+        
+        // Al presionar una tecla
+        usuarioInput.addEventListener("keydown", function(e) {
+          let x = autocompleteList.getElementsByTagName("div");
+          
+          if (e.keyCode == 40) { // Flecha hacia abajo
+            currentFocus++;
+            addActive(x);
+          } else if (e.keyCode == 38) { // Flecha hacia arriba
+            currentFocus--;
+            addActive(x);
+          } else if (e.keyCode == 13) { // Enter
+            if (currentFocus > -1) {
+              e.preventDefault();
+              if (x) x[currentFocus].click();
+            }
+          }
+        });
+        
+        // Al enfocar el campo
+        usuarioInput.addEventListener("focus", function() {
+          if (this.value === "" && usuarios.length > 0) {
+            autocompleteList.style.display = "block";
+            autocompleteList.innerHTML = "";
+            
+            for (let i = 0; i < usuarios.length; i++) {
+              const usuario = usuarios[i];
+              const item = document.createElement("DIV");
+              item.innerHTML = usuario.nombre;
+              item.innerHTML += "<input type='hidden' value='" + usuario.nombre + "' data-id='" + usuario.id + "'>";
+              
+              item.addEventListener("click", function(e) {
+                const input = this.getElementsByTagName("input")[0];
+                usuarioInput.value = input.value;
+                usuarioIdInput.value = input.getAttribute("data-id");
+                closeAllLists();
+              });
+              
+              autocompleteList.appendChild(item);
+            }
+          }
+        });
+        
+        function addActive(x) {
+          if (!x) return false;
+          removeActive(x);
+          if (currentFocus >= x.length) currentFocus = 0;
+          if (currentFocus < 0) currentFocus = (x.length - 1);
+          x[currentFocus].classList.add("autocomplete-active");
+        }
+        
+        function removeActive(x) {
+          for (let i = 0; i < x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+          }
+        }
+      }
+      
+      function closeAllLists(elmnt) {
+        autocompleteList.style.display = "none";
+      }
+      
+      // Cerrar lista al hacer clic fuera del campo
+      document.addEventListener("click", function(e) {
+        if (e.target !== usuarioInput) {
+          closeAllLists();
+        }
+      });
+      
+      // Inicializar el autocompletado
+      setupAutocomplete();
+      
+      // Selector de prioridad
+      document.querySelectorAll('.priority-option').forEach(option => {
+        option.addEventListener('click', function() {
+          // Quitar selección anterior
+          document.querySelectorAll('.priority-option').forEach(el => {
+            el.classList.remove('selected');
+          });
+          
+          // Añadir selección nueva
+          this.classList.add('selected');
+          
+          // Actualizar valor del campo oculto
+          document.getElementById('priority').value = this.dataset.value;
+        });
+      });
+      
+      // Manejar envío del formulario
+      document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Evita que se recargue la página
+        
+        const formData = new FormData(this);
+        
+        // Spinner en el botón de envío
+        const submitBtn = document.querySelector('.submit-btn');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        submitBtn.disabled = true;
+        
+        fetch("/enviar_ticket/", {
+          method: "POST",
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.ticket_id) {
+            Swal.fire({
+              icon: 'success',
+              title: '¡Ticket Enviado!',
+              text: `Tu número de ticket es: ${data.ticket_id}`,
+              confirmButtonText: 'Aceptar'
+            });
+            this.reset(); // Limpia el formulario
+            document.querySelector('.priority-option.medium').click(); // Resetea la prioridad
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error al enviar el ticket',
+              text: 'No se recibió un número de ticket válido.'
+            });
+          }
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Error de conexión',
+            text: 'No se pudo contactar con el servidor.'
+          });
+        })
+        .finally(() => {
+          // Restaurar el botón
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

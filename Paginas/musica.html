@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Música | Byron Jacque</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/musica.css">
+</head>
+<body>
+    <!-- Digital Grid -->
+    <div class="digital-grid"></div>
+    
+    <!-- Matrix Rain Canvas -->
+    <canvas id="matrix-rain"></canvas>
+    
+    <!-- Video de fondo -->
+    <div class="video-background">
+        <video autoplay muted loop id="background-video">
+            <source src="background-video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Header Fijo -->
+    <header>
+        <div class="logo">
+            <a href="../index.html" class="logo-text">Byron Jacque</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../Paginas/proyectos.html">Proyectos</a></li>
+                <li><a href="../Paginas/blogs.html">Blogs</a></li>
+                <li><a href="../Paginas/hobbys.html">Hobbys</a></li>
+                <li><a href="../Paginas/datos.html">Mis Datos</a></li>
+                <li><a href="../Paginas/certificados.html">Certificados</a></li>
+                <li><a href="../Paginas/musica.html">Música</a></li>
+            </ul>
+        </nav>
+        <div class="login-btn">
+            <button>Ingresar</button>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Contenido Principal - Música -->
+    <main class="container">
+        <div class="page-title fade-in">
+            <h1>Música</h1>
+            <p>Mi colección personal de música que me inspira mientras programo.</p>
+        </div>
+        
+        <!-- Dante Dance Video -->
+        <div class="dante-container fade-in">
+            <video class="dante-video" autoplay controls loop>
+                <source src="../assets/videos/rat-dance-but-its-dante-devil-may-cry.mp4" type="video/mp4">
+                Tu navegador no soporta videos HTML5.
+            </video>
+            <div class="dante-overlay"></div>
+            <div class="dante-scan"></div>
+            <div class="dante-glitch"></div>
+        </div>
+        
+        <!-- Filtros de música -->
+        <div class="music-filters fade-in">
+            <button class="filter-btn active" data-filter="all">Todos los géneros</button>
+            <button class="filter-btn" data-filter="electronic">Electrónica</button>
+            <button class="filter-btn" data-filter="ambient">Ambient</button>
+            <button class="filter-btn" data-filter="synthwave">Synthwave</button>
+            <button class="filter-btn" data-filter="lofi">Lo-Fi</button>
+        </div>
+        
+        <!-- Reproductor Destacado -->
+        <div class="featured-player fade-in">
+            <div class="featured-player-inner">
+                <div class="featured-cover">
+                    <img src="../assets/imagenesmusicas/vergil.png" alt="Canción Destacada">
+                    <div class="featured-equalizer">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="featured-info">
+                    <h2 class="featured-title">Bury The light</h2>
+                    <p class="featured-artist">i am the storm </p>
+                    <p class="featured-description">
+                        Una mezcla hipnótica de ritmos electrónicos y melodías ambientales que te transportará a un mundo digital futurista. 
+                        Perfecto para sesiones intensas de codificación o para sumergirse en el flujo creativo.
+                    </p>
+                    <div class="featured-controls">
+                        <button class="featured-play-btn" data-audio="../assets/musica/bury-the-light.mp3">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="featured-progress-container">
+                            <div class="featured-progress">
+                                <div class="featured-progress-bar"></div>
+                            </div>
+                            <div class="featured-time">
+                                <span class="featured-current-time">0:00</span>
+                                <span class="featured-duration">4:45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Playlist: Electrónica -->
+        <div class="playlist-section fade-in">
+            <h2 class="playlist-title">Electrónica</h2>
+            <div class="playlist">
+                <!-- Track 1 -->
+                <div class="track-card" data-category="electronic">
+                    <div class="track-thumbnail">
+                        <img src="../assets/imagenesmusicas/ponteloquita.jpg" alt="Binary Code">
+                        <div class="music-equalizer">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="track-content">
+                        <h3 class="track-title">Ponte lokita</h3>
+                        <p class="track-artist">Kid vodoo</p>
+                        <div class="track-meta">
+                            <div class="track-album">
+                                <i class="fas fa-compact-disc"></i>
+                                <span>Chile</span>
+                            </div>
+                            <div class="track-year">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2024</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" data-audio="../assets/musica/ponteloquita">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="track-time">
+                                <span class="track-current">0:00</span>
+                                <div class="track-progress">
+                                    <div class="track-progress-bar"></div>
+                                </div>
+                                <span class="track-duration">3:45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Track 2 -->
+                <div class="track-card" data-category="electronic">
+                    <div class="track-thumbnail">
+                        <img src="../assets/imagenesmusicas/si no es contigo.jpg" alt="Neural Network">
+                        <div class="music-equalizer">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="track-content">
+                        <h3 class="track-title">Si no es contigo remix</h3>
+                        <p class="track-artist">Cris Mj</p>
+                        <div class="track-meta">
+                            <div class="track-album">
+                                <i class="fas fa-compact-disc"></i>
+                                <span>Chile</span>
+                            </div>
+                            <div class="track-year">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2024</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" data-audio="../assets/musica/sinoescontioremix.mp3">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="track-time">
+                                <span class="track-current">0:00</span>
+                                <div class="track-progress">
+                                    <div class="track-progress-bar"></div>
+                                </div>
+                                <span class="track-duration">4:20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Track 3 -->
+                <div class="track-card" data-category="electronic">
+                    <div class="track-thumbnail">
+                        <img src="../assets/imagenesmusicas/howdeepisyourlove.jpg" alt="Quantum Code">
+                        <div class="music-equalizer">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="track-content">
+                        <h3 class="track-title">How Deep Is Your Love</h3>
+                        <p class="track-artist">noc</p>
+                        <div class="track-meta">
+                            <div class="track-album">
+                                <i class="fas fa-compact-disc"></i>
+                                <span>Superposition</span>
+                            </div>
+                            <div class="track-year">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2023</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" data-audio="../assets/musica/howdeepisyourlove.mp3">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="track-time">
+                                <span class="track-current">0:00</span>
+                                <div class="track-progress">
+                                    <div class="track-progress-bar"></div>
+                                </div>
+                                <span class="track-duration">5:10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Playlist: Ambient -->
+        <div class="playlist-section fade-in">
+            <h2 class="playlist-title">Ambient</h2>
+            <div class="playlist">
+                <!-- Track 4 -->
+                <div class="track-card" data-category="ambient">
+                    <div class="track-thumbnail">
+                        <img src="https://via.placeholder.com/400x400/0A0A0A/00FF41/?text=Deep+Focus" alt="Deep Focus">
+                        <div class="music-equalizer">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="track-content">
+                        <h3 class="track-title">Deep Focus</h3>
+                        <p class="track-artist">Mindscape</p>
+                        <div class="track-meta">
+                            <div class="track-album">
+                                <i class="fas fa-compact-disc"></i>
+                                <span>Concentration</span>
+                            </div>
+                            <div class="track-year">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2024</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" data-audio="music/deep-focus.mp3">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="track-time">
+                                <span class="track-current">0:00</span>
+                                <div class="track-progress">
+                                    <div class="track-progress-bar"></div>
+                                </div>
+                                <span class="track-duration">6:30</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Track 5 -->
+                <div class="track-card" data-category="ambient">
+                    <div class="track-thumbnail">
+                        <img src="https://via.placeholder.com/400x400/0A0A0A/00FF41/?text=Matrix+Rain" alt="Matrix Rain">
+                        <div class="music-equalizer">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="track-content">
+                        <h3 class="track-title">Matrix Rain</h3>
+                        <p class="track-artist">Digital Drift</p>
+                        <div class="track-meta">
+                            <div class="track-album">
+                                <i class="fas fa-compact-disc"></i>
+                                <span>Code Reflections</span>
+                            </div>
+                            <div class="track-year">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2023</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" data-audio="music/matrix-rain.mp3">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="track-time">
+                                <span class="track-current">0:00</span>
+                                <div class="track-progress">
+                                    <div class="track-progress-bar"></div>
+                                </div>
+                                <span class="track-duration">5:45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Track 6 -->
+                <div class="track-card" data-category="ambient">
+                    <div class="track-thumbnail">
+                        <img src="https://via.placeholder.com/400x400/0A0A0A/00FF41/?text=Digital+Zen" alt="Digital Zen">
+                        <div class="music-equalizer">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="track-content">
+                        <h3 class="track-title">Digital Zen</h3>
+                        <p class="track-artist">Cyber Meditation</p>
+                        <div class="track-meta">
+                            <div class="track-album">
+                                <i class="fas fa-compact-disc"></i>
+                                <span>Inner Code</span>
+                            </div>
+                            <div class="track-year">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2024</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" data-audio="music/digital-zen.mp3">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="track-time">
+                                <span class="track-current">0:00</span>
+                                <div class="track-progress">
+                                    <div class="track-progress-bar"></div>
+                                </div>
+                                <span class="track-duration">7:15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Playlist: Synthwave & Lo-Fi -->
+        <div class="playlist-section fade-in">
+            <h2 class="playlist-title">Synthwave & Lo-Fi</h2>
+            <div class="playlist">
+                <!-- Track 7 -->
+                <div class="track-card" data-category="synthwave">
+                    <div class="track-thumbnail">
+                        <img src="https://via.placeholder.com/400x400/0A0A0A/00FF41/?text=Night+Code" alt="Night Code">
+                        <div class="music-equalizer">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="track-content">
+                        <h3 class="track-title">Night Code</h3>
+                        <p class="track-artist">Retrowave Coder</p>
+                        <div class="track-meta">
+                            <div class="track-album">
+                                <i class="fas fa-compact-disc"></i>
+                                <span>Neon Dreams</span>
+                            </div>
+                            <div class="track-year">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2023</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" data-audio="music/night-code.mp3">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="track-time">
+                                <span class="track-current">0:00</span>
+                                <div class="track-progress">
+                                    <div class="track-progress-bar"></div>
+                                </div>
+                                <span class="track-duration">4:50</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Track 8 -->
+                <div class="track-card" data-category="synthwave">
+                    <div class="track-thumbnail">
+                        <img src="https://via.placeholder.com/400x400/0A0A0A/00FF41/?text=Cyber+Drive" alt="Cyber Drive">
+                        <div class="music-equalizer">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="track-content">
+                        <h3 class="track-title">Cyber Drive</h3>
+                        <p class="track-artist">Grid Runner</p>
+                        <div class="track-meta">
+                            <div class="track-album">
+                                <i class="fas fa-compact-disc"></i>
+                                <span>Digital Highway</span>
+                            </div>
+                            <div class="track-year">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2024</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" data-audio="music/cyber-drive.mp3">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="track-time">
+                                <span class="track-current">0:00</span>
+                                <div class="track-progress">
+                                    <div class="track-progress-bar"></div>
+                                </div>
+                                <span class="track-duration">5:20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Track 9 -->
+                <div class="track-card" data-category="lofi">
+                    <div class="track-thumbnail">
+                        <img src="https://via.placeholder.com/400x400/0A0A0A/00FF41/?text=Coding+Session" alt="Coding Session">
+                        <div class="music-equalizer">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="track-content">
+                        <h3 class="track-title">Coding Session</h3>
+                        <p class="track-artist">Dev Beats</p>
+                        <div class="track-meta">
+                            <div class="track-album">
+                                <i class="fas fa-compact-disc"></i>
+                                <span>Late Night Commits</span>
+                            </div>
+                            <div class="track-year">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2024</span>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <button class="play-btn" data-audio="music/coding-session.mp3">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="track-time">
+                                <span class="track-current">0:00</span>
+                                <div class="track-progress">
+                                    <div class="track-progress-bar"></div>
+                                </div>
+                                <span class="track-duration">4:05</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Byron Jacque</h3>
+                    <p>Desarrollador Web & Ingeniero Informático</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/ByronJacque"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/byron-jacque-rivero-a1b670248/"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Byron Jacque. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="../Js/musica.js"></script>
+</body>
+</html>
