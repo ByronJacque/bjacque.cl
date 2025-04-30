@@ -1,5 +1,6 @@
 <?php
 require_once 'config.php';
+session_start();
 
 $error = '';
 
@@ -20,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
             $_SESSION['loggedin'] = true;
-            $_SESSION['id'] = $row['id'];
+            $_SESSION['user_id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
             
             // Redirección personalizada para diferentes usuarios
@@ -29,8 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } elseif ($row['username'] === "smashbyron") {
                 header("location: smashbyron.php");
             } else {
-                // Redirigir a la página principal para otros usuarios
-                header("location: area-exclusiva.php");
+                // Redirigir a la página de espacio personal para usuarios normales
+                header("location: espacio-usuario.php");
             }
             exit;
         } else {

@@ -206,6 +206,16 @@ if ($result && $result->num_rows > 0) {
         $files[] = $row;
     }
 }
+
+// Obtener usuarios registrados
+$users = [];
+$sql = "SELECT id, username, email, nombre_completo, fecha_registro, profile_photo, password FROM usuarios ORDER BY fecha_registro DESC";
+$result = $conn->query($sql);
+if ($result && $result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $users[] = $row;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -534,7 +544,7 @@ if ($result && $result->num_rows > 0) {
         
         .note-content {
             font-size: 0.95rem;
-            color: var(--muted-text);
+            color: var (--muted-text);
             line-height: 1.6;
             margin-bottom: 20px;
             flex: 1;
@@ -660,7 +670,7 @@ if ($result && $result->num_rows > 0) {
         
         .empty-state h3 {
             font-size: 1.2rem;
-            color: var(--light-text);
+            color: var (--light-text);
             margin-bottom: 10px;
         }
         
@@ -719,6 +729,35 @@ if ($result && $result->num_rows > 0) {
                 overflow-x: auto;
             }
         }
+        
+        .progress-container {
+            margin: 15px 0;
+            width: 100%;
+        }
+        
+        .progress-bar {
+            background-color: rgba(49, 46, 129, 0.3);
+            border-radius: 5px;
+            height: 20px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            height: 100%;
+            width: 0%;
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-text {
+            text-align: center;
+            margin-top: 5px;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
     </style>
 </head>
 <body>
@@ -772,6 +811,9 @@ if ($result && $result->num_rows > 0) {
             </button>
             <button class="tab-button <?php echo $section == 'files' ? 'active' : ''; ?>" data-tab="files">
                 <i class="fas fa-file-alt"></i> Mis Archivos
+            </button>
+            <button class="tab-button <?php echo $section == 'users' ? 'active' : ''; ?>" data-tab="users">
+                <i class="fas fa-users"></i> Usuarios Registrados
             </button>
         </div>
         
@@ -845,7 +887,7 @@ if ($result && $result->num_rows > 0) {
                 <h2><i class="fas fa-cloud-upload-alt"></i> Subir Archivo</h2>
                 
                 <div class="form-container">
-                    <form action="smashbyron.php" method="post" enctype="multipart/form-data">
+                    <form action="smashbyron.php" method="post" enctype="multipart/form-data" id="upload-form">
                         <div class="form-group">
                             <label for="file_upload">Seleccionar Archivo</label>
                             <input type="file" id="file_upload" name="file_upload" class="form-control" required>
@@ -857,7 +899,16 @@ if ($result && $result->num_rows > 0) {
                             <label for="file_description">Descripción</label>
                             <textarea id="file_description" name="file_description" class="form-control" rows="3"></textarea>
                         </div>
-                        <button type="submit" name="add_file" class="btn btn-primary">
+                        
+                        <!-- Barra de progreso -->
+                        <div class="progress-container" style="display: none;">
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <div class="progress-text">0%</div>
+                        </div>
+                        
+                        <button type="submit" name="add_file" id="upload-button" class="btn btn-primary">
                             <i class="fas fa-upload"></i> Subir Archivo
                         </button>
                     </form>
@@ -937,6 +988,70 @@ if ($result && $result->num_rows > 0) {
             <?php endif; ?>
         </div>
         
+        <!-- Sección de Usuarios Registrados -->
+        <div id="users" class="tab-content <?php echo $section == 'users' ? 'active' : ''; ?>">
+            <div class="dashboard-card">
+                <h2><i class="fas fa-users"></i> Usuarios Registrados</h2>
+                
+                <?php if(empty($users)): ?>
+                    <div class="empty-state">
+                        <i class="fas fa-user-slash"></i>
+                        <h3>No hay usuarios registrados</h3>
+                        <p>Actualmente no hay usuarios registrados en el sistema.</p>
+                    </div>
+                <?php else: ?>
+                    <table class="files-table">
+                        <thead>
+                            <tr>
+                                <th>Foto</th>
+                                <th>Usuario</th>
+                                <th>Nombre Completo</th>
+                                <th>Email</th>
+                                <th>Contraseña</th>
+                                <th>Fecha de Registro</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($users as $user): ?>
+                                <tr>
+                                    <td style="width: 60px;">
+                                        <?php if(!empty($user['profile_photo'])): ?>
+                                            <img src="../<?php echo htmlspecialchars($user['profile_photo']); ?>" alt="Foto de perfil" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                                        <?php else: ?>
+                                            <div style="width: 40px; height: 40px; border-radius: 50%; background-color: #4f46e5; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                                <?php echo strtoupper(substr($user['username'], 0, 1)); ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td><?php echo htmlspecialchars($user['username']); ?></td>
+                                    <td><?php echo htmlspecialchars($user['nombre_completo']); ?></td>
+                                    <td><?php echo htmlspecialchars($user['email']); ?></td>
+                                    <td>
+                                        <?php if (strpos($user['password'], '$2y$') === 0): ?>
+                                            <span title="Contraseña encriptada con bcrypt" style="color: #f59e0b;">
+                                                [Encriptada] <button class="btn btn-sm btn-primary view-password" data-user="<?php echo htmlspecialchars($user['username']); ?>">Ver</button>
+                                            </span>
+                                        <?php else: ?>
+                                            <?php echo htmlspecialchars($user['password']); ?>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <?php 
+                                        if (isset($user['fecha_registro'])) {
+                                            echo date('d/m/Y H:i', strtotime($user['fecha_registro']));
+                                        } else {
+                                            echo 'N/A';
+                                        }
+                                        ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php endif; ?>
+            </div>
+        </div>
+        
         <div class="logout-bar">
             <a href="../index.html" class="btn back-button">
                 <i class="fas fa-arrow-left"></i> Volver al Inicio
@@ -988,6 +1103,113 @@ if ($result && $result->num_rows > 0) {
                     // Actualizar URL (opcional)
                     window.history.replaceState(null, null, `?section=${tabId}`);
                 });
+            });
+
+            // Configurar el formulario de carga de archivos con barra de progreso
+            const uploadForm = document.getElementById('upload-form');
+            const fileInput = document.getElementById('file_upload');
+            const progressContainer = document.querySelector('.progress-container');
+            const progressFill = document.querySelector('.progress-fill');
+            const progressText = document.querySelector('.progress-text');
+            const uploadButton = document.getElementById('upload-button');
+            
+            if (uploadForm) {
+                uploadForm.addEventListener('submit', function(e) {
+                    // Solo proceder si se ha seleccionado un archivo
+                    if (fileInput.files.length === 0) {
+                        return;
+                    }
+                    
+                    e.preventDefault();
+                    
+                    // Mostrar la barra de progreso
+                    progressContainer.style.display = 'block';
+                    uploadButton.disabled = true;
+                    
+                    // Crear un objeto FormData para enviar el formulario con AJAX
+                    const formData = new FormData(this);
+                    
+                    // Crear una solicitud AJAX
+                    const xhr = new XMLHttpRequest();
+                    
+                    // Configurar el evento de progreso
+                    xhr.upload.addEventListener('progress', function(e) {
+                        if (e.lengthComputable) {
+                            const percentComplete = Math.round((e.loaded / e.total) * 100);
+                            
+                            // Actualizar la barra de progreso
+                            progressFill.style.width = percentComplete + '%';
+                            progressText.textContent = percentComplete + '%';
+                        }
+                    });
+                    
+                    // Configurar el evento de finalización
+                    xhr.addEventListener('load', function() {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            // Éxito - redirigir a la página con mensaje de éxito
+                            window.location.href = 'smashbyron.php?section=files&status=success&message=Archivo+subido+correctamente';
+                        } else {
+                            // Error - mostrar mensaje
+                            progressContainer.style.display = 'none';
+                            uploadButton.disabled = false;
+                            alert('Error al subir el archivo: ' + xhr.statusText);
+                        }
+                    });
+                    
+                    // Configurar el evento de error
+                    xhr.addEventListener('error', function() {
+                        progressContainer.style.display = 'none';
+                        uploadButton.disabled = false;
+                        alert('Error de red al intentar subir el archivo');
+                    });
+                    
+                    // Abrir y enviar la solicitud
+                    xhr.open('POST', 'smashbyron.php', true);
+                    xhr.send(formData);
+                });
+            }
+
+            // Manejar click en botones "Ver" contraseña
+            document.querySelectorAll('.view-password').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const username = this.getAttribute('data-user');
+                    const passwordSpan = this.parentElement;
+
+                    // Cambiar texto del botón
+                    if (this.textContent === 'Ver') {
+                        // Obtener contraseña desde el servidor
+                        fetch('get_password.php?username=' + encodeURIComponent(username))
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    // Mostrar contraseña
+                                    passwordSpan.innerHTML = '<span style="color: #10b981;">' + data.password + '</span> ';
+                                    const hideBtn = document.createElement('button');
+                                    hideBtn.className = 'btn btn-sm btn-danger view-password';
+                                    hideBtn.textContent = 'Ocultar';
+                                    hideBtn.setAttribute('data-user', username);
+                                    passwordSpan.appendChild(hideBtn);
+                                } else {
+                                    alert('Error: ' + data.message);
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert('Error al obtener la contraseña');
+                            });
+                    } else {
+                        // Ocultar contraseña
+                        passwordSpan.innerHTML = '[Encriptada] <button class="btn btn-sm btn-primary view-password" data-user="' + username + '">Ver</button>';
+                    }
+                });
+            });
+
+            // Delegación de eventos para botones dinámicamente añadidos
+            document.addEventListener('click', function(e) {
+                if (e.target && e.target.classList.contains('view-password')) {
+                    // El código ya maneja esto arriba
+                }
             });
         });
         

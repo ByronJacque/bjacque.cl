@@ -130,264 +130,7 @@ if ($result->num_rows > 0) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/index.css">
-    <style>
-        .mvalladares-container {
-            max-width: 1000px;
-            margin: 100px auto;
-            padding: 20px;
-            background-color: rgba(0,0,0,0.8);
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
-        }
-        .welcome-message {
-            color: #ff69b4;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2rem;
-        }
-        .protected-content {
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-        .exclusive-section {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: rgba(40, 0, 20, 0.5);
-            border-radius: 8px;
-            border-left: 4px solid #ff69b4;
-        }
-        .exclusive-title {
-            color: #ff69b4;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        .special-message {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            padding: 20px;
-            background-color: rgba(255, 105, 180, 0.1);
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        .photo-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .photo-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .photo-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
-        }
-        .photo-item img {
-            width: 100%;
-            display: block;
-            transition: transform 0.5s;
-        }
-        .photo-item:hover img {
-            transform: scale(1.05);
-        }
-        .photo-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-        }
-        .photo-item:hover .photo-caption {
-            transform: translateY(0);
-        }
-        .heart-icon {
-            color: #ff69b4;
-            margin-right: 8px;
-        }
-        .love-letter {
-            font-style: italic;
-            line-height: 1.8;
-            padding: 25px;
-            background-color: rgba(255, 105, 180, 0.1);
-            border-radius: 8px;
-            margin: 20px 0;
-            position: relative;
-        }
-        .love-letter:before {
-            content: """;
-            position: absolute;
-            top: -10px;
-            left: 10px;
-            font-size: 60px;
-            color: rgba(255, 105, 180, 0.2);
-            font-family: Georgia, serif;
-        }
-        .love-letter:after {
-            content: """;
-            position: absolute;
-            bottom: -40px;
-            right: 10px;
-            font-size: 60px;
-            color: rgba(255, 105, 180, 0.2);
-            font-family: Georgia, serif;
-        }
-        .love-note {
-            font-style: italic;
-            text-align: center;
-            margin: 30px 0;
-            font-size: 1.2rem;
-            color: #ddd;
-        }
-        .logout-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 24px;
-            background-color: #ff3d85;
-            color: white;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.2s;
-        }
-        .logout-btn:hover {
-            background-color: #ff69b4;
-        }
-        
-        /* Nuevos estilos para las funcionalidades interactivas */
-        .tab-menu {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .tab-button {
-            flex: 1;
-            padding: 12px 15px;
-            background: #333;
-            color: #fff;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-        }
-        .tab-button:hover {
-            background-color: rgba(255, 105, 180, 0.5);
-        }
-        .tab-button.active {
-            background-color: #ff69b4;
-            color: white;
-            font-weight: bold;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .form-container {
-            background: rgba(40, 0, 20, 0.3);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-        .form-title {
-            color: #ff69b4;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #e0e0e0;
-        }
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            background: rgba(30, 30, 30, 0.8);
-            border: 1px solid #555;
-            border-radius: 4px;
-            color: #fff;
-            font-family: 'Montserrat', sans-serif;
-        }
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-        .submit-btn {
-            background-color: #ff69b4;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.2s;
-        }
-        .submit-btn:hover {
-            background-color: #ff3d85;
-        }
-        .notes-list {
-            margin-top: 30px;
-        }
-        .note-card {
-            background: rgba(30, 30, 30, 0.6);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-left: 3px solid #ff69b4;
-        }
-        .note-title {
-            color: #ff69b4;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-        .note-content {
-            color: #e0e0e0;
-            line-height: 1.6;
-            white-space: pre-wrap;
-        }
-        .note-date {
-            color: #aaa;
-            font-size: 0.8rem;
-            margin-top: 10px;
-            text-align: right;
-        }
-        .status-message {
-            padding: 10px 15px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-        }
-        .status-success {
-            background-color: rgba(0, 255, 0, 0.1);
-            color: #00e676;
-            border: 1px solid #00e676;
-        }
-        .maria-photos-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .upload-preview {
-            max-width: 100%;
-            margin-top: 10px;
-            display: none;
-            border-radius: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css">
 </head>
 <body>
     <!-- Digital Grid -->
@@ -532,17 +275,26 @@ if ($result->num_rows > 0) {
                     
                     <div class="form-container">
                         <h4 class="form-title">Subir Nueva Foto</h4>
-                        <form action="mvalladares.php" method="post" enctype="multipart/form-data">
+                        <form action="mvalladares.php" method="post" enctype="multipart/form-data" id="photoUploadForm">
                             <div class="form-group">
                                 <label for="photo">Seleccionar Imagen</label>
                                 <input type="file" id="photo" name="photo" class="form-control" accept="image/*" required onchange="previewImage()">
                                 <img id="photo-preview" src="#" alt="Vista previa" class="upload-preview">
+                                <div class="file-name-display" id="file-name-display">
+                                    <i class="fas fa-image"></i> <span id="file-name"></span>
+                                </div>
+                                <div class="progress-container" id="progress-container">
+                                    <div class="progress-bar" id="progress-bar"></div>
+                                </div>
+                                <div class="progress-text" id="progress-text"></div>
                             </div>
                             <div class="form-group">
                                 <label for="photo_caption">Descripción</label>
                                 <input type="text" id="photo_caption" name="photo_caption" class="form-control" required>
                             </div>
-                            <button type="submit" name="add_photo" class="submit-btn">Subir Foto</button>
+                            <button type="submit" name="add_photo" id="upload-btn" class="submit-btn">
+                                <i class="fas fa-upload"></i> Subir Foto
+                            </button>
                         </form>
                     </div>
                     
@@ -617,6 +369,8 @@ if ($result->num_rows > 0) {
         </div>
     </footer>
 
+    <script src="../Js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
     <script>
         // Cambio de pestañas
         document.addEventListener('DOMContentLoaded', function() {
@@ -639,7 +393,115 @@ if ($result->num_rows > 0) {
                     window.history.replaceState(null, null, `?section=${tabId}`);
                 });
             });
+            
+            // Configuración de la barra de progreso para la carga de fotos
+            const photoUploadForm = document.getElementById('photoUploadForm');
+            const fileInput = document.getElementById('photo');
+            const fileNameDisplay = document.getElementById('file-name-display');
+            const fileName = document.getElementById('file-name');
+            const progressContainer = document.getElementById('progress-container');
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const uploadBtn = document.getElementById('upload-btn');
+            
+            // Mostrar nombre del archivo seleccionado
+            fileInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    fileName.textContent = this.files[0].name;
+                    fileNameDisplay.style.display = 'block';
+                    previewImage();
+                } else {
+                    fileNameDisplay.style.display = 'none';
+                }
+            });
+            
+            // Manejar el envío del formulario con barra de progreso
+            if (photoUploadForm) {
+                photoUploadForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    if (!fileInput.files.length) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Por favor selecciona una foto para subir',
+                            confirmButtonColor: '#ff69b4'
+                        });
+                        return;
+                    }
+                    
+                    const caption = document.getElementById('photo_caption').value;
+                    if (!caption) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Por favor añade una descripción para la foto',
+                            confirmButtonColor: '#ff69b4'
+                        });
+                        return;
+                    }
+                    
+                    // Mostrar barra de progreso
+                    progressContainer.style.display = 'block';
+                    progressText.style.display = 'block';
+                    uploadBtn.disabled = true;
+                    uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subiendo...';
+                    
+                    const xhr = new XMLHttpRequest();
+                    const formData = new FormData(photoUploadForm);
+                    
+                    xhr.upload.addEventListener('progress', function(e) {
+                        if (e.lengthComputable) {
+                            const percentComplete = Math.round((e.loaded / e.total) * 100);
+                            progressBar.style.width = percentComplete + '%';
+                            progressText.textContent = percentComplete + '%';
+                        }
+                    });
+                    
+                    xhr.addEventListener('load', function() {
+                        if (xhr.status === 200) {
+                            // Redirigir a la sección de fotos con mensaje de éxito
+                            window.location.href = 'mvalladares.php?section=photos&status=success';
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Ocurrió un error durante la carga de la foto',
+                                confirmButtonColor: '#ff69b4'
+                            });
+                            resetUploadForm();
+                        }
+                    });
+                    
+                    xhr.addEventListener('error', function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Ocurrió un error durante la carga de la foto',
+                            confirmButtonColor: '#ff69b4'
+                        });
+                        resetUploadForm();
+                    });
+                    
+                    xhr.open('POST', 'mvalladares.php?section=photos', true);
+                    xhr.send(formData);
+                });
+            }
         });
+        
+        // Función para resetear el formulario de carga
+        function resetUploadForm() {
+            const progressContainer = document.getElementById('progress-container');
+            const progressText = document.getElementById('progress-text');
+            const uploadBtn = document.getElementById('upload-btn');
+            
+            if (progressContainer) progressContainer.style.display = 'none';
+            if (progressText) progressText.style.display = 'none';
+            if (uploadBtn) {
+                uploadBtn.disabled = false;
+                uploadBtn.innerHTML = '<i class="fas fa-upload"></i> Subir Foto';
+            }
+        }
         
         // Vista previa de imagen
         function previewImage() {
@@ -660,6 +522,5 @@ if ($result->num_rows > 0) {
             }
         }
     </script>
-    <script src="../Js/index.js"></script>
 </body>
 </html>

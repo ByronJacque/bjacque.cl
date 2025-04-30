@@ -6,6 +6,35 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
+
+// Variables para la carga de archivos
+$upload_message = '';
+$file_uploaded = false;
+
+// Crear directorio para archivos de usuario si no existe
+$uploads_dir = "../assets/archivos/usuarios/" . $_SESSION["username"];
+if (!file_exists($uploads_dir)) {
+    mkdir($uploads_dir, 0777, true);
+}
+
+// Procesar la carga de archivos
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['file_upload']) && $_FILES['file_upload']['error'] == 0) {
+    $target_dir = $uploads_dir . "/";
+    $target_file = $target_dir . basename($_FILES["file_upload"]["name"]);
+    
+    // Verificar si el archivo ya existe
+    if (file_exists($target_file)) {
+        $upload_message = "El archivo ya existe.";
+    } else {
+        // Intentar subir el archivo
+        if (move_uploaded_file($_FILES["file_upload"]["tmp_name"], $target_file)) {
+            $upload_message = "El archivo " . htmlspecialchars(basename($_FILES["file_upload"]["name"])) . " ha sido subido correctamente.";
+            $file_uploaded = true;
+        } else {
+            $upload_message = "Error al subir el archivo.";
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -113,7 +142,172 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             padding-top: 20px;
             border-top: 1px solid #333;
         }
+        
+        /* Estilos para la sección de carga de archivos */
+        .upload-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(0, 40, 20, 0.5);
+            border-radius: 8px;
+            border-left: 4px solid #00e676;
+        }
+        
+        .file-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+        
+        .custom-file-input {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .file-input-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: rgba(79, 70, 229, 0.1);
+            color: #a5b4fc;
+            border: 2px dashed #4f46e5;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .file-input-button:hover {
+            background-color: rgba(79, 70, 229, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .file-input-button i {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        
+        .file-form input[type="file"] {
+            opacity: 0;
+            position: absolute;
+            width: 0.1px;
+            height: 0.1px;
+            z-index: -1;
+        }
+        
+        .file-name-display {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: rgba(79, 70, 229, 0.1);
+            color: #e0e0e0;
+            border-radius: 6px;
+            font-size: 0.9em;
+            display: none;
+            word-break: break-all;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .file-name-display i {
+            color: #a5b4fc;
+            margin-right: 5px;
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-top: 15px;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #4f46e5, #00c853);
+            border-radius: 5px;
+            transition: width 0.2s ease;
+            box-shadow: 0 0 10px rgba(0, 230, 118, 0.3);
+        }
+        
+        .progress-text {
+            color: #e0e0e0;
+            font-size: 0.8em;
+            text-align: center;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        button.upload-btn {
+            padding: 14px;
+            background-color: #00c853;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        button.upload-btn:hover {
+            background-color: #00e676;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 230, 118, 0.3);
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .message {
+            margin: 15px 0;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .success {
+            background-color: rgba(16, 185, 129, 0.15);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .error {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css">
 </head>
 <body>
     <!-- Digital Grid -->
@@ -240,6 +434,42 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </div>
             <?php endif; ?>
             
+            <!-- Sección de carga de archivos -->
+            <div class="exclusive-section upload-section">
+                <h3 class="exclusive-title"><i class="fas fa-upload"></i> Carga de Archivos</h3>
+                <p>Sube tus archivos de forma segura a tu área personal.</p>
+                
+                <?php if (!empty($upload_message)): ?>
+                    <div class="message <?php echo $file_uploaded ? 'success' : 'error'; ?>">
+                        <?php echo $upload_message; ?>
+                    </div>
+                <?php endif; ?>
+                
+                <form class="file-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="file_upload">Selecciona un archivo para subir:</label>
+                        <div class="custom-file-input">
+                            <label class="file-input-button" for="file_upload">
+                                <i class="fas fa-cloud-upload-alt"></i> Seleccionar Archivo
+                            </label>
+                            <input type="file" name="file_upload" id="file_upload">
+                            <div class="file-name-display" id="file-name-display">
+                                <i class="fas fa-file"></i> <span id="file-name"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-container" id="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <div class="progress-text" id="progress-text"></div>
+                    
+                    <button type="submit" class="upload-btn" id="upload-btn" disabled>
+                        <i class="fas fa-upload"></i> Subir Archivo
+                    </button>
+                </form>
+            </div>
+            
             <div style="text-align: center; margin-top: 40px;">
                 <a href="logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
             </div>
@@ -267,5 +497,94 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </footer>
 
     <script src="../Js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+    <script>
+        // Manejar la visualización del nombre del archivo
+        const fileInput = document.getElementById('file_upload');
+        const fileNameDisplay = document.getElementById('file-name-display');
+        const fileName = document.getElementById('file-name');
+        const uploadBtn = document.getElementById('upload-btn');
+        const progressContainer = document.getElementById('progress-container');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                fileName.textContent = this.files[0].name;
+                fileNameDisplay.style.display = 'block';
+                uploadBtn.disabled = false;
+            } else {
+                fileNameDisplay.style.display = 'none';
+                uploadBtn.disabled = true;
+            }
+        });
+        
+        // Manejar el formulario de carga con barra de progreso
+        document.querySelector('.file-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!fileInput.files.length) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Por favor selecciona un archivo para subir',
+                    confirmButtonColor: '#00c853'
+                });
+                return;
+            }
+            
+            const formData = new FormData(this);
+            const xhr = new XMLHttpRequest();
+            
+            // Mostrar barra de progreso
+            progressContainer.style.display = 'block';
+            progressText.style.display = 'block';
+            uploadBtn.disabled = true;
+            uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subiendo...';
+            
+            xhr.upload.addEventListener('progress', function(e) {
+                if (e.lengthComputable) {
+                    const percentComplete = Math.round((e.loaded / e.total) * 100);
+                    progressBar.style.width = percentComplete + '%';
+                    progressText.textContent = percentComplete + '%';
+                }
+            });
+            
+            xhr.addEventListener('load', function() {
+                if (xhr.status === 200) {
+                    // La carga se completó, recargar la página para mostrar el resultado
+                    window.location.reload();
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Ocurrió un error durante la carga del archivo',
+                        confirmButtonColor: '#00c853'
+                    });
+                    resetUploadForm();
+                }
+            });
+            
+            xhr.addEventListener('error', function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Ocurrió un error durante la carga del archivo',
+                    confirmButtonColor: '#00c853'
+                });
+                resetUploadForm();
+            });
+            
+            xhr.open('POST', '<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>', true);
+            xhr.send(formData);
+        });
+        
+        function resetUploadForm() {
+            progressContainer.style.display = 'none';
+            progressText.style.display = 'none';
+            uploadBtn.disabled = false;
+            uploadBtn.innerHTML = '<i class="fas fa-upload"></i> Subir Archivo';
+        }
+    </script>
 </body>
 </html>
