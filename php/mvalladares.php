@@ -569,23 +569,23 @@ if ($result->num_rows > 0) {
                     
                     <div class="photo-gallery">
                         <div class="photo-item">
-                            <img src="https://via.placeholder.com/500x350/ff69b4/ffffff?text=Foto+Juntos+1" alt="Nosotros">
-                            <div class="photo-caption">Nuestro primer viaje juntos</div>
+                            <img src="../assets/mvalladares/maria3.jpg" alt="Nosotros">
+                            <div class="photo-caption">Nuestro primer 14f juntos</div>
                         </div>
                         
                         <div class="photo-item">
-                            <img src="https://via.placeholder.com/500x350/ff69b4/ffffff?text=Foto+Juntos+2" alt="Nosotros">
-                            <div class="photo-caption">Momentos especiales</div>
+                            <img src="../assets/mvalladares/maria4.jpg" alt="Nosotros">
+                            <div class="photo-caption">Nuestro primer 14f juntos</div>
                         </div>
                         
                         <div class="photo-item">
-                            <img src="https://via.placeholder.com/500x350/ff69b4/ffffff?text=Foto+Juntos+3" alt="Nosotros">
-                            <div class="photo-caption">Nuestra cena favorita</div>
+                            <img src="../assets/mvalladares/maria1.jpeg" alt="Nosotros">
+                            <div class="photo-caption">Nuestra 2da noche durmiendo juntitos</div>
                         </div>
                         
                         <div class="photo-item">
-                            <img src="https://via.placeholder.com/500x350/ff69b4/ffffff?text=Foto+Juntos+4" alt="Nosotros">
-                            <div class="photo-caption">Momentos de risa</div>
+                            <img src="../assets/mvalladares/maria2.jpeg" alt="Nosotros">
+                            <div class="photo-caption">Nuestra 2da noche durmiendo juntitos</div>
                         </div>
                     </div>
                 </div>

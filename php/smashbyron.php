@@ -72,26 +72,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $target_file = $upload_dir . time() . "_" . $file_name;
             $file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
             
-            // Permitir formatos de archivo seguros
-            $allowed_formats = ["pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "txt", "zip", "rar"];
-            if(in_array($file_type, $allowed_formats) && $_FILES["file_upload"]["size"] < 50000000) { // Límite de 50MB
-                if(move_uploaded_file($_FILES["file_upload"]["tmp_name"], $target_file)) {
-                    // Guardar en la base de datos
-                    $file_path = str_replace("../", "", $target_file);
-                    $file_size = $_FILES["file_upload"]["size"];
-                    $file_type = $_FILES["file_upload"]["type"];
-                    
-                    $sql = "INSERT INTO byron_files (file_name, file_path, file_type, file_size, description, uploaded_at) VALUES (?, ?, ?, ?, ?, NOW())";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("sssss", $file_name, $file_path, $file_type, $file_size, $file_description);
-                    $stmt->execute();
-                    $stmt->close();
-                    
-                    header("location: smashbyron.php?section=files&status=success&message=Archivo+subido+correctamente");
-                    exit;
-                }
-            } else {
-                header("location: smashbyron.php?section=files&status=error&message=Formato+de+archivo+no+permitido+o+tamaño+excedido");
+            // Permitir todos los formatos de archivo sin restricciones
+            $allowed_formats = ["*"]; // Permitir cualquier formato
+            // Se eliminó la verificación de tipo de archivo y tamaño para permitir cualquier archivo
+            if(move_uploaded_file($_FILES["file_upload"]["tmp_name"], $target_file)) {
+                // Guardar en la base de datos
+                $file_path = str_replace("../", "", $target_file);
+                $file_size = $_FILES["file_upload"]["size"];
+                $file_type = $_FILES["file_upload"]["type"];
+                
+                $sql = "INSERT INTO byron_files (file_name, file_path, file_type, file_size, description, uploaded_at) VALUES (?, ?, ?, ?, ?, NOW())";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("sssss", $file_name, $file_path, $file_type, $file_size, $file_description);
+                $stmt->execute();
+                $stmt->close();
+                
+                header("location: smashbyron.php?section=files&status=success&message=Archivo+subido+correctamente");
                 exit;
             }
         }
