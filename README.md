@@ -94,11 +94,7 @@ Este repositorio contiene el código fuente completo del sitio web personal de B
   - `area-exclusiva.php`: Página de área exclusiva general para usuarios autenticados.
   - `config.php`: Configuración de conexión a la base de datos y sesiones.
     ```php
-    // Configuración principal
-    $servername = "localhost";
-    $username = "bjacquec_byron";
-    $password = "#Q7qrnggn2002";
-    $dbname = "bjacquec_bjacque.cl";
+   
     ```
   - `crear_usuario_mvalladares.php`: Script para crear el usuario de mvalladares.
   - `crear_usuario_smashbyron.php`: Script para crear el usuario SmashByron con contraseña q7qrnggn.
@@ -157,8 +153,7 @@ El sitio incluye áreas de acceso restringido para usuarios específicos:
 #### Área de SmashByron
 - **Acceso**:
   - URL: php/login.php
-  - Usuario: smashbyron
-  - Contraseña: q7qrnggn
+  
 
 - **Sistema de notas completo**:
   - Creación de notas con título y contenido de texto
